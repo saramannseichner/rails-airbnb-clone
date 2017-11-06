@@ -28,8 +28,7 @@
 .navbar-link {
   color: $gallery;
   font-size: 14px;
-}
-
-.fa-search {
-  color: $gallery;
+  &:hover {
+    color: black;
+  }
 }

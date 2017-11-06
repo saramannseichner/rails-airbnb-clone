@@ -12,8 +12,10 @@
     </div>
     <!-- search -->
     <div class="col-xs-3 col-sm-4 text-right">
-      <%= link_to "Search", "#", class: "navbar-item navbar-link" %>
-      <i class="fa fa-search" aria-hidden="true"></i>
+      <%= link_to "#", class: "navbar-item navbar-link" do %>
+        <p>Search</p>
+        <i class="fa fa-search" aria-hidden="true"></i>
+      <% end %>
     </div>
   </div>
 </nav>
