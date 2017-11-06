@@ -1,6 +1,6 @@
 class User < ApplicationRecord
-  has_many :reservations
-
-  validates :username, presence: true, uniqueness: true
-  validates :password, presence: true
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable
 end
