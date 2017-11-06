@@ -1,25 +1,17 @@
-<nav class= "navbar navbar-fixed-top">
-  <div class="navbar-header row" id="main-nav-header">
-    <!-- menu -->
-    <div class="col-xs-3 col-sm-4">
-       <%= link_to "#", class: "navbar-item navbar-link" do %>
-        <i class="fa fa-bars" aria-hidden="true"></i>
-        <p>Menu</p>
-      <% end %>
-    </div>
-    <!-- logo -->
-    <div class="col-xs-6 col-sm-4">
-      <%= link_to root_path, class: "navbar-brand" do %>
-        <%= image_tag "gallery514_logo.png" %>
-      <% end %>
-    </div>
-    <!-- search -->
-    <div class="col-xs-3 col-sm-4 text-right">
-      <%= link_to "#", class: "navbar-item navbar-link" do %>
-        <p>Search</p>
-        <i class="fa fa-search" aria-hidden="true"></i>
-      <% end %>
-    </div>
-  </div>
-</nav>
+<div class= "navbar-top" id="main-nav-header">
+<!-- menu -->
+   <%= link_to "#", class: "navbar-item navbar-link" do %>
+    <i class="fa fa-bars" aria-hidden="true"></i>
+    <p>Menu</p>
+  <% end %>
+<!-- logo -->
+  <%= link_to root_path, class: "navbar-logo" do %>
+    <%= image_tag "gallery514_logo.png" %>
+  <% end %>
+<!-- search -->
+  <%= link_to "#", class: "navbar-item navbar-link" do %>
+    <p>Search</p>
+    <i class="fa fa-search" aria-hidden="true"></i>
+  <% end %>
+</div>
 
