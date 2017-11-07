@@ -1,15 +1,20 @@
 <div class="card"
   style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
-         url('<%= cl_image_path artwork.photo.path, height: 400, width: 300, crop: :fill %>')">
+         url('https://picsum.photos/400/300/?random')">
   <div class="card-content">
     <div class="card-item card-name">
-      <%= link_to artwork.name, "#", class: "card-link" %>
+      <%= link_to "The Cliff", "#", class: "card-link" %>
     </div>
     <div class="card-item card-artist">
-      <%= link_to artwork.artist, "#", class: "card-link" %>
+      <%= link_to "Jesse", "#", class: "card-link" %>
     </div>
     <div class="card-medium">
-      <p><%= artwork.medium %></p>
+      <p><%= "Photograph" %></p>
     </div>
   </div>
 </div>
+
+
+<!-- artwork.name -->
+<!-- artwork.artist.first_name -->
+<!-- artwork.medium -->
