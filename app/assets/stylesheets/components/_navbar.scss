@@ -114,14 +114,18 @@
   top: 0;
 }
 
+#close-search {
+  color: white;
+}
 .search-bar {
   background-color: $gallery;
   border-style: none none solid none;
   border-width: thin;
+  color: white;
 }
 
 i {
-  color: rgba(255, 255, 255, 0.5);
+  color: $gallery;
   height: 20px;
 }
 
