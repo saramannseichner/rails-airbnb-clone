@@ -1,15 +1,17 @@
 <div class="card-container">
-  <div class="card-img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://picsum.photos/300/400/?random');">
-    <div class="card-content text-center">
-      <div class="card-item card-name">
-        <%= link_to "The Cliff", "#", class: "card-link" %>
-      </div>
-      <div class="card-item card-artist">
-        <p>By Jesse</p>
-      </div>
-      <div class="card-item card-medium">
-        <p><%= "Photograph" %></p>
+  <%= link_to "#" do %>
+    <div class="card-img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://picsum.photos/300/400/?random');">
+      <div class="card-content text-center">
+        <div class="card-item card-name">
+          <p>The Cliff</p>
+        </div>
+        <div class="card-item card-artist">
+          <p>By Jesse</p>
+        </div>
+        <div class="card-item card-medium">
+          <p><%= "Photograph" %></p>
+        </div>
       </div>
     </div>
-  </div>
+  <% end %>
 </div>
