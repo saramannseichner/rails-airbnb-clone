@@ -7,7 +7,7 @@ gem 'pg'
 gem 'puma'
 gem 'rails', '5.1.4'
 gem 'redis'
-gem 'webpacker', '~> 3.0'
+# gem 'webpacker', '~> 3.0'
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass'
@@ -18,7 +18,10 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'devise'
 gem 'omniauth-facebook'
-
+gem 'cloudinary', '1.1.7'
+gem 'attachinary', github: 'assembler/attachinary'
+gem 'jquery-fileupload-rails'
+gem 'coffee-rails'
 
 group :development, :test do
   gem 'pry-byebug'
