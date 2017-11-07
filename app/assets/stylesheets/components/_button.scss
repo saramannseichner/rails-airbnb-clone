@@ -1,21 +1,33 @@
-gallery-btn  {
+.gallery-btn  {
   border-radius: 1px;
-  padding: 5px 10px;
+  padding: 8px 25px;
   border: solid;
   border-width: 1.5px;
   background: none;
 }
 
-gallery-primary {
+.gallery-primary {
   border-color: $gallery;
   color: $gallery;
 }
 
-gallery-secondary {
+.gallery-secondary {
   border-color: $dark-gray;
   color: $dark-gray;
 }
 
-gallery-btn:hover {
+.gallery-primary:hover {
   background-color: rgba(193, 203, 203, 0.5);
+  border-color: $gallery;
 }
+
+.gallery-primary:active {
+  background-color: $gallery;
+  border-color: $gallery;
+}
+
+.gallery-secondary:hover {
+  background-color: rgba(193, 203, 203, 0.5);
+  border-color: $dark-gray;
+}
+
