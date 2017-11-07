@@ -1,8 +1,15 @@
-<%= simple_form_for do |f| %>
-  <%= f.input :name %>
-  <%= f.input :medium %>
-  <%= f.input :size %>
-  <%= f.input :description %>
-  <%= f.input :address %>
-  <%= f.submit %>
-<% end %>
+<div class="container">
+  <%= simple_form_for([@user, @artwork]) do |f| %>
+    <%= f.error_notification %>
+
+    <%= f.input :name %>
+    <%= f.input :medium %>
+    <%= f.input :size %>
+    <%= f.input :description %>
+    <%= f.input :address %>
+    <%= f.input :photo, as: :attachinary %>
+
+    <%= f.submit %>
+  <% end %>
+</div>
+
