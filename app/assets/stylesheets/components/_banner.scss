@@ -1,0 +1,21 @@
+.banner {
+  height: 60vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: $dark-gray;
+  background-image: url("background-home.png");
+  background-color: white;
+  align: center;
+  background-size: cover;
+
+}
+
+.banner-content {
+  align-content: center;
+  font-weight: bold;
+  text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+}
+
+.banner-button {
+  align-content: center;
+}
