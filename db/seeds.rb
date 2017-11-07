@@ -5,3 +5,28 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+puts "Cleaning database..."
+Artwork.destroy_all
+
+puts "Creating artworks..."
+attributes = [
+  [
+    {
+      name: "The Cliff",
+      artist: "Jesse",
+      medium: "Photograph",
+      size: "7m x 7m",
+      description: "A beautiful cliff taken during my trip to Colombia.",
+      address: "125 Rue Elmire"
+    },
+    "https://picsum.photos/400/300/?random"
+  ]
+]
+
+attributes.each do |attr|
+  artwork = Artwork.new(attr[0])
+  artwork.save!
+  artwork.photo_url = attr[1]
+end
+
+puts "Finished!"

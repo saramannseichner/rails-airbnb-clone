@@ -5,7 +5,9 @@
       <%= render "components/card" %>
     </div>
     <div class="col-xs-12 col-sm-4">
-      <%= render "components/card", artwork: @artwork %>
+      <% @artworks.each do |artwork| %>
+        <%= render "components/card", artwork: artwork %>
+      <% end %>
     </div>
   </div>
 </div>
