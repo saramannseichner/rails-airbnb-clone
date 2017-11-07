@@ -1,17 +1,28 @@
-.card {
-  padding: 10px;
-  margin: 10px;
+.card-container {
   box-shadow: 1px 1px 2px rgba(0,0,0,0.2);
   border-radius: 2px;
+  padding: 10px;
+  background-color: white;
+  position: relative;
+}
+
+.card-img {
   height: 400px;
   background-size: cover !important;
   background-position: center;
 }
 
 .card-content {
-  // display: none;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  bottom: 30px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 20px;
   &:hover {
-    display: initial;
     background-color: white;
     opacity: 0.9;
   }
@@ -36,4 +47,9 @@
     text-decoration: none;
     color: $gallery;
   }
+}
+
+.card-name {
+  font-size: 25px;
+  font-weight: bolder;
 }
