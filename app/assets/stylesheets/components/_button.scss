@@ -1,0 +1,21 @@
+gallery-btn  {
+  border-radius: 1px;
+  padding: 5px 10px;
+  border: solid;
+  border-width: 1.5px;
+  background: none;
+}
+
+gallery-primary {
+  border-color: $gallery;
+  color: $gallery;
+}
+
+gallery-secondary {
+  border-color: $dark-gray;
+  color: $dark-gray;
+}
+
+gallery-btn:hover {
+  background-color: rgba(193, 203, 203, 0.5);
+}
