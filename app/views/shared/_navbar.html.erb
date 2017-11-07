@@ -34,10 +34,14 @@
       <%= link_to "#", class: "tab-link tab-log-in" do %>
         <p>Log In</p>
         <i class="fa fa-user" aria-hidden="true"></i>
+        <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/30x30" %>
+        <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
       <% end %>
     </div>
   </div>
 </div>
+
+
 
 
 <%= javascript_tag do %>
