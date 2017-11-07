@@ -1,0 +1,20 @@
+.banner {
+  height: 100vh;
+  background-position: center;
+  color: $dark-gray;
+  background-image: url("background-home.png");
+  background-color: $gray;
+  margin: 0;
+}
+
+.banner-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+}
+
+.banner-button {
+  align: center;
+}
