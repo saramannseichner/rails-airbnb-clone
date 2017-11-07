@@ -1,4 +1,9 @@
-/* Main navbar */
+.navbar {
+  position: relative;
+  border: 0;
+}
+
+/* Top Navbar */
 .navbar-top {
   box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
   background: white;
@@ -8,7 +13,6 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 20px;
 }
 
 .navbar-logo img {
@@ -31,6 +35,28 @@
 .navbar-link {
   color: $gallery;
   font-size: 14px;
+  &:hover {
+    color: black;
+  }
+}
+
+/* Navbar Menu */
+.navbar-menu {
+  position: absolute;
+  width: 100%;
+}
+.menu-options {
+  background-color: $gallery;
+  opacity: 0.9;
+}
+
+.menu-item {
+  padding: 14px 70px;
+}
+
+.menu-link {
+  padding: 0;
+  color: white;
   &:hover {
     color: black;
   }
