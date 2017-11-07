@@ -1,0 +1,64 @@
+<div class="navbar">
+  <!-- navbar -->
+  <div class= "navbar-top" id="main-nav-header">
+    <!-- menu -->
+    <%= link_to "#", class: "navbar-item", :id => "menu" do %>
+      <i class="fa fa-bars" aria-hidden="true" id="bars"></i>
+      <i class="fa fa-times collapsed" aria-hidden="true" id= "close"></i>
+      <p>Menu</p>
+    <% end %>
+    <!-- logo -->
+    <%= link_to root_path, class: "navbar-logo" do %>
+      <%= image_tag "gallery514_logo.png" %>
+    <% end %>
+    <!-- search -->
+    <%= link_to "#", class: "navbar-item" do %>
+      <p>Search</p>
+      <i class="fa fa-search" aria-hidden="true"></i>
+    <% end %>
+  </div>
+  <!-- toggle menu -->
+  <div class="navbar-menu collapsed" id="nav-menu">
+    <div class="menu-options">
+      <ul class="list-unstyled menu-list">
+        <li class="menu-item"><%= link_to "Something", "#", class: "menu-link" %></li>
+        <li class="menu-item"><%= link_to "Something", "#", class: "menu-link" %></li>
+        <li class="menu-item"><%= link_to "Something", "#", class: "menu-link" %></li>
+      </ul>
+    </div>
+    <div class="menu-tabs">
+      <ul class="list-inline tab-left">
+        <li class="tab-item"><%= link_to "Become a 514 artist", "#", class: "tab-link" %></li>
+        <li class="tab-item"><%= link_to "Help", "#", class: "tab-link" %></li>
+      </ul>
+      <%= link_to "#", class: "tab-link tab-log-in" do %>
+        <p>Log In</p>
+        <i class="fa fa-user" aria-hidden="true"></i>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+<%= javascript_tag do %>
+  menuLogo= document.getElementById("menu");
+  menu = document.getElementById("nav-menu");
+  bars = document.getElementById("bars");
+  close = document.getElementById("close");
+  menuLogo.addEventListener("click", (event) => {
+    event.preventDefault();
+    collapsed = menu.classList.contains("collapsed");
+    if(collapsed){
+      menu.classList.remove("collapsed");
+      close.classList.remove("collapsed");
+      bars.classList.add("collapsed");
+    } else {
+      menu.classList.add("collapsed");
+      close.classList.add("collapsed");
+      bars.classList.remove("collapsed");
+    }
+  });
+<% end %>
+
+
+
