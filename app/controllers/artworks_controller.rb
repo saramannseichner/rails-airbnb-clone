@@ -1,4 +1,4 @@
-class ArtworkController < ApplicationController
+class ArtworksController < ApplicationController
   before_action :set_artwork, only: [:show, :edit, :delete]
 
   def index
