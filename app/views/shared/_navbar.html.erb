@@ -12,11 +12,12 @@
       <%= image_tag "gallery514_logo.png" %>
     <% end %>
     <!-- search -->
-    <%= link_to "#", class: "navbar-item" do %>
+    <%= link_to "#", class: "navbar-item", :id => "search" do %>
       <p>Search</p>
       <i class="fa fa-search" aria-hidden="true"></i>
     <% end %>
   </div>
+
   <!-- toggle menu -->
   <div class="navbar-menu collapsed" id="nav-menu">
     <div class="menu-options">
@@ -43,8 +44,34 @@
   </div>
 </div>
 
+  <!-- search popup -->
+
+<div class="search-popup collapsed" id="nav-search">
+  <form action="/search/" autocomplete="off">
+    <button type="button" class="close" aria-label="Close">
+      <i class="fa fa-window-close" id="close-search" aria-hidden="true"></i>
+    </button>
+    <input class="search-bar"  type="search" placeholder="Type to search">
+  </form>
+</div>
 
 
+<%= javascript_tag do %>
+  searchLogo = document.getElementById("search");
+  search = document.getElementById("nav-search");
+  closeSearch = document.getElementById("close-search");
+  searchLogo.addEventListener("click", (event) => {
+    event.preventDefault();
+    collapsed = search.classList.contains("collapsed");
+    if(collapsed){
+      closeSearch.classList.remove("collapsed");
+      search.classList.remove("collapsed");
+    } else {
+      closeSearch.classList.add("collapsed");
+      search.classList.add("collapsed");
+    }
+  });
+<% end %>
 
 <%= javascript_tag do %>
   menuLogo= document.getElementById("menu");
@@ -65,6 +92,9 @@
     }
   });
 <% end %>
+
+
+
 
 
 
