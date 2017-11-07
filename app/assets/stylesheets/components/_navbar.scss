@@ -50,6 +50,10 @@
   opacity: 0.9;
 }
 
+.menu-list {
+  margin-bottom: 0;
+}
+
 .menu-item {
   padding: 14px 70px;
 }
@@ -61,3 +65,41 @@
     color: black;
   }
 }
+
+.menu-tabs {
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 46px;
+}
+
+.tab-item {
+  padding: 15px 24px !important;
+}
+
+.tab-link {
+  color: $gallery;
+  font-size: 14px;
+  &:hover {
+    color: black;
+  }
+}
+
+.tab-left {
+  margin-bottom: 0;
+}
+
+.tab-log-in {
+  p {
+    display: inline;
+    padding: 0 20px;
+  }
+}
+
+
+
+
+
+
+
