@@ -104,9 +104,25 @@
   }
 }
 
+.search-popup {
+  background-color: $gallery;
+  padding-top: 15px;
+  height: 100%;
+  width: 100%;
+  font-size:130px;
+  position: absolute;
+  top: 0;
+}
 
+.search-bar {
+  background-color: $gallery;
+  border-style: none none solid none;
+  border-width: thin;
+}
 
-
-
+i {
+  color: rgba(255, 255, 255, 0.5);
+  height: 20px;
+}
 
 
