@@ -1,17 +1,14 @@
-<div class="card">
-  <div class="card-img">
-    <% if artwork.photo? %>
-      <%= cl_image_tag artwork.photo.path, width: 200, height: 300, crop: :fill %>
-    <% end %>
-  </div>
+<div class="card"
+  style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+         url('<%= cl_image_path artwork.photo.path, height: 400, width: 300, crop: :fill %>')">
   <div class="card-content">
-    <div class="card-item">
+    <div class="card-item card-name">
       <%= link_to artwork.name, "#", class: "card-link" %>
     </div>
-    <div class="card-aw-artist">
+    <div class="card-item card-artist">
       <%= link_to artwork.artist, "#", class: "card-link" %>
     </div>
-    <div class="card-aw-medium">
+    <div class="card-medium">
       <p><%= artwork.medium %></p>
     </div>
   </div>
