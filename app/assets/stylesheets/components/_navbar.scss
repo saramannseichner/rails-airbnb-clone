@@ -45,6 +45,11 @@
   position: absolute;
   width: 100%;
 }
+
+.collapsed {
+  display: none;
+}
+
 .menu-options {
   background-color: $gallery;
   opacity: 0.9;
