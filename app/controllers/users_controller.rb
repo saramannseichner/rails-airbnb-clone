@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   def show
-      @user = user.find(params[:id])
+    @user = user.find(params[:id])
   end
 
   private
