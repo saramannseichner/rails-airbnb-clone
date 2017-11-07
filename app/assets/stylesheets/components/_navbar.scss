@@ -25,18 +25,20 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  color: $gallery;
+  font-size: 14px;
   p {
     padding: 0 20px;
     margin: 0;
     font-size: 18px;
   }
-}
-
-.navbar-link {
-  color: $gallery;
-  font-size: 14px;
   &:hover {
     color: black;
+    text-decoration: none;
+  }
+  &:focus {
+    text-decoration: none;
+    color: $gallery;
   }
 }
 
