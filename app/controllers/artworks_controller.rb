@@ -4,26 +4,32 @@ class ArtworksController < ApplicationController
   def index
     @artworks = Artwork.all
 
-    @artworks = Artwork.where.not(latitude: nil, longitude: nil)
-    @hash = Gmaps4rails.build_markers(@artworks) do |artwork, marker|
+    if params[:search]
+      @artworks = Artwork.search(params[:search]).order("created_at DESC")
+    else
+      @artworks = Artwork.all.order('created_at DESC')
+    end
+  end
+
+  def show
+    @artwork = Artwork.find(params[:id])
+    @artwork_coordinates = { lat: @artwork.latitude, lng: @artwork.longitude }
+    @reservation = Reservation.new
+    @hash = Gmaps4rails.build_markers(@artwork) do |artwork, marker|
       marker.lat artwork.latitude
       marker.lng artwork.longitude
     end
   end
 
-  def show
-    @artworks = Artwork.find(params[:id])
-    @artwork_coordinates = { lat: @flat.latitude, lng: @flat.longitude }
-  end
-
   def new
     @artwork = Artwork.new
-    @user = User.find(params[:id])
   end
 
   def create
     @artwork = Artwork.new(artwork_params)
+    @artwork.user_id = current_user.id
     if @artwork.save!
+      current_user.artist = 'true'
       redirect_to artwork_path(@artwork)
     else
       render :new
@@ -53,7 +59,7 @@ class ArtworksController < ApplicationController
   end
 
   def artwork_params
-    params.require(:artwork).permit(:name, :medium, :size, :description, :artist, :address, :photo)
+    params.require(:artwork).permit(:name, :price, :height, :medium, :width, :description, :artist, :address, :photo)
   end
 
 end

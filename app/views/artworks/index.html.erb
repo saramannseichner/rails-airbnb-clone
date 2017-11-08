@@ -2,8 +2,19 @@
   <h1 class="text-center">All artworks</h1>
   <hr>
   <div class="row">
+    <%= form_tag(artworks_path, :method => "get", id: "search-form") do %>
+      <%= text_field_tag :search, params[:search], placeholder: "Search Artowrk" %>
+      <%= submit_tag "Search" %>
+    <% end %>
+  </div>
+
+  <div class="row">
     <div class="col-xs-12 col-sm-4">
-      <%= render partial: 'components/artwork',collection: @artworks %>
+      <% if @artworks.present? %>
+        <%= render partial: 'components/artwork',collection: @artworks %>
+      <% else %>
+        <p>There are no posts containing the term(s) <%= params[:search] %>.</p>
+      <% end %>
     </div>
   </div>
 </div>

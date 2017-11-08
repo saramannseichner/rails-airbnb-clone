@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171108155602) do
+
+ActiveRecord::Schema.define(version: 20171108162503) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,14 +19,17 @@ ActiveRecord::Schema.define(version: 20171108155602) do
   create_table "artworks", force: :cascade do |t|
     t.string "name"
     t.string "medium"
-    t.string "size"
     t.text "description"
     t.string "address"
-    t.string "artist"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.float "latitude"
     t.float "longitude"
+    t.integer "price"
+    t.integer "height"
+    t.integer "width"
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_artworks_on_user_id"
   end
 
   create_table "attachinary_files", id: :serial, force: :cascade do |t|
@@ -46,9 +50,10 @@ ActiveRecord::Schema.define(version: 20171108155602) do
   create_table "reservations", force: :cascade do |t|
     t.bigint "artwork_id"
     t.bigint "user_id"
-    t.string "date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "start_date"
+    t.string "end_date"
     t.index ["artwork_id"], name: "index_reservations_on_artwork_id"
     t.index ["user_id"], name: "index_reservations_on_user_id"
   end
@@ -81,6 +86,7 @@ ActiveRecord::Schema.define(version: 20171108155602) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "artworks", "users"
   add_foreign_key "reservations", "artworks"
   add_foreign_key "reservations", "users"
 end
