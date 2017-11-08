@@ -14,6 +14,7 @@ class ArtworksController < ApplicationController
 
   def show
     @artwork = Artwork.find(params[:id])
+    @user = User.find(@artwork.user_id)
     @artwork_coordinates = { lat: @artwork.latitude, lng: @artwork.longitude }
     @reservation = Reservation.new
     @hash = Gmaps4rails.build_markers(@artwork) do |artwork, marker|

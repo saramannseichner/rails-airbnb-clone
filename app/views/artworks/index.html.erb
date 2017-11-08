@@ -4,10 +4,10 @@
   <div class="row">
     <%= form_tag(artworks_path, :method => "get", id: "search-form") do %>
       <%= text_field_tag :search, params[:search], placeholder: "Search Artowrk" %>
-      <%= submit_tag "Search" %>
+      <%= submit_tag "Filter" %>
     <% end %>
   </div>
-
+  <br>
   <div class="row">
     <div class="col-xs-12 col-sm-4">
       <% if @artworks.present? %>
