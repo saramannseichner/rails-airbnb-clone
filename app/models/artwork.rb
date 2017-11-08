@@ -7,4 +7,7 @@ class Artwork < ApplicationRecord
   validates :artist, presence: true
   validates :medium, presence: true
   validates :size, presence: true
+
+  geocoded_by :address
+  after_validation :geocode, if: :address_changed?
 end
