@@ -14,12 +14,13 @@ class ArtworksController < ApplicationController
 
   def new
     @artwork = Artwork.new
-    @user = User.find(params[:id])
   end
 
   def create
     @artwork = Artwork.new(artwork_params)
+    @artwork.user_id = current_user.id
     if @artwork.save!
+      current_user.artist = 'true'
       redirect_to artwork_path(@artwork)
     else
       render :new
@@ -49,6 +50,6 @@ class ArtworksController < ApplicationController
   end
 
   def artwork_params
-    params.require(:artwork).permit(:name, :medium, :size, :description, :artist, :address, :photo)
+    params.require(:artwork).permit(:name, :price, :height, :medium, :width, :description, :artist, :address, :photo)
   end
 end
