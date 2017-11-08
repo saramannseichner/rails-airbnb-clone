@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :users, only: [ :index ] do
       resources :artworks, only: [ :new, :create ]
   end
-  resources :artworks, only: [ :index ]
+  resources :artworks, only: [ :index, :show ]
 
   mount Attachinary::Engine => "/attachinary"
   root to: 'pages#home'
