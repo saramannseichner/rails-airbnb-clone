@@ -1,4 +1,5 @@
 class ArtworksController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :set_artwork, only: [:show, :edit, :delete]
 
   def index
