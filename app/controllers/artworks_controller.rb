@@ -5,10 +5,10 @@ class ArtworksController < ApplicationController
     @artworks = Artwork.all
 
     @artworks = Artwork.where.not(latitude: nil, longitude: nil)
-
     @hash = Gmaps4rails.build_markers(@artworks) do |artwork, marker|
       marker.lat artwork.latitude
       marker.lng artwork.longitude
+    end
   end
 
   def show
