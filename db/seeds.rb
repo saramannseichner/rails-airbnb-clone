@@ -13,9 +13,9 @@ attributes = [
   [
     {
       name: "The Cliff",
-      artist: "Jesse",
       medium: "Photograph",
-      size: "7m x 7m",
+      height: 2,
+      width: 2,
       description: "A beautiful cliff taken during my trip to Colombia.",
       address: "125 Rue Elmire"
     },
