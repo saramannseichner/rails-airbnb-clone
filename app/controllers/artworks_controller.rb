@@ -20,6 +20,7 @@ class ArtworksController < ApplicationController
     @artwork = Artwork.new(artwork_params)
     @artwork.user_id = current_user.id
     if @artwork.save!
+      current_user.artist = 'true'
       redirect_to artwork_path(@artwork)
     else
       render :new
