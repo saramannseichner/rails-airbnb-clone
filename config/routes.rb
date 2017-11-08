@@ -4,8 +4,9 @@ Rails.application.routes.draw do
   resources :users, only: [ :index ] do
       resources :artworks, only: [ :new, :create ]
   end
-  resources :artworks, only: [ :index, :show ]
-
+  resources :artworks, only: [ :index, :show ] do
+    resources :reservations, only: [ :new, :create ]
+  end
   mount Attachinary::Engine => "/attachinary"
   root to: 'pages#home'
 end
