@@ -4,7 +4,7 @@ class Artwork < ApplicationRecord
   has_attachment :photo
 
   validates :name, presence: true
-  validates :artist, presence: true
+  validates :user_id, presence: true
   validates :medium, presence: true
   validates :height, presence: true
   validates :width, presence: true
