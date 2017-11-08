@@ -4,17 +4,19 @@
     <!-- menu -->
     <%= link_to "#", class: "navbar-item", :id => "menu" do %>
       <i class="fa fa-bars" aria-hidden="true" id="bars"></i>
-      <i class="fa fa-times collapsed" aria-hidden="true" id= "close"></i>
+      <i class="fa fa-times collapsed" aria-hidden="true" id="menu-close"></i>
       <p>Menu</p>
     <% end %>
     <!-- logo -->
     <%= link_to root_path, class: "navbar-logo" do %>
-      <%= image_tag "gallery514_logo.png" %>
+      <%= image_tag "gallery514_logo.png", :id => "logo" %>
+      <%= image_tag "gallery514_white.png", :id => "logo-white", :class => "collapsed" %>
     <% end %>
     <!-- search -->
     <%= link_to "#", class: "navbar-item", :id => "search" do %>
       <p>Search</p>
-      <i class="fa fa-search" aria-hidden="true"></i>
+      <i class="fa fa-search" aria-hidden="true" id="loupe"></i>
+      <i class="fa fa-times collapsed" aria-hidden="true" id= "search-close"></i>
     <% end %>
   </div>
 
@@ -32,43 +34,56 @@
         <li class="tab-item"><%= link_to "Become a 514 artist", "#", class: "tab-link" %></li>
         <li class="tab-item"><%= link_to "Help", "#", class: "tab-link" %></li>
       </ul>
-      <%= link_to "#", class: "tab-link tab-log-in" do %>
-        <p>Log In</p>
-        <i class="fa fa-user" aria-hidden="true"></i>
+      <%= link_to new_user_session_path, class: "tab-link tab-log-in" do %>
         <% if user_signed_in? %>
-        <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/30x30" %>
-        <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+          <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/30x30" %>
+          <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+        <% else %>
+          <p>Log In</p>
+          <i class="fa fa-user" aria-hidden="true"></i>
+          <%=  %>
         <% end %>
       <% end %>
     </div>
   </div>
 </div>
 
-  <!-- search popup -->
-
+<!-- search popup -->
 <div class="search-popup collapsed" id="nav-search">
-  <form action="/search/" autocomplete="off">
-    <button type="button" class="close" aria-label="Close">
-      <i class="fa fa-window-close" id="close-search" aria-hidden="true"></i>
-    </button>
-    <input class="search-bar"  type="search" placeholder="Type to search">
-  </form>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <form action="/search/" autocomplete="off">
+          <input class="search-bar"  type="search" placeholder="Type to search">
+        </form>
+      </div>
+    </div>
+  </div>
 </div>
 
 
 <%= javascript_tag do %>
   searchLogo = document.getElementById("search");
   search = document.getElementById("nav-search");
-  closeSearch = document.getElementById("close-search");
+  loupe = document.getElementById("loupe");
+  closeSearch = document.getElementById("search-close");
+  logo = document.getElementById("logo");
+  logoWhite = document.getElementById("logo-white");
   searchLogo.addEventListener("click", (event) => {
     event.preventDefault();
     collapsed = search.classList.contains("collapsed");
     if(collapsed){
-      closeSearch.classList.remove("collapsed");
       search.classList.remove("collapsed");
+      closeSearch.classList.remove("collapsed");
+      loupe.classList.add("collapsed");
+      logo.classList.add("collapsed");
+      logoWhite.classList.remove("collapsed");
     } else {
-      closeSearch.classList.add("collapsed");
       search.classList.add("collapsed");
+      closeSearch.classList.add("collapsed");
+      loupe.classList.remove("collapsed");
+      logo.classList.remove("collapsed");
+      logoWhite.classList.add("collapsed");
     }
   });
 <% end %>
@@ -77,17 +92,17 @@
   menuLogo= document.getElementById("menu");
   menu = document.getElementById("nav-menu");
   bars = document.getElementById("bars");
-  close = document.getElementById("close");
+  closeMenu = document.getElementById("menu-close");
   menuLogo.addEventListener("click", (event) => {
     event.preventDefault();
     collapsed = menu.classList.contains("collapsed");
     if(collapsed){
       menu.classList.remove("collapsed");
-      close.classList.remove("collapsed");
+      closeMenu.classList.remove("collapsed");
       bars.classList.add("collapsed");
     } else {
       menu.classList.add("collapsed");
-      close.classList.add("collapsed");
+      closeMenu.classList.add("collapsed");
       bars.classList.remove("collapsed");
     }
   });

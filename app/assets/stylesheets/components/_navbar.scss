@@ -47,6 +47,7 @@
 .navbar-menu {
   position: absolute;
   width: 100%;
+  z-index: 1000;
 }
 
 .collapsed {
@@ -76,6 +77,7 @@
 
 .menu-tabs {
   background-color: white;
+  box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -104,30 +106,38 @@
     padding: 0 20px;
   }
 }
-
+/* Navbar Search Popup */
 .search-popup {
   background-color: $gallery;
-  padding-top: 15px;
+  opacity: 0.95;
+  padding-top: 100px;
   height: 100%;
   width: 100%;
-  font-size:130px;
+  font-size: 150px;
   position: absolute;
   top: 0;
+  z-index: 1000;
 }
 
-#close-search {
+#search-close {
   color: white;
+  z-index: 10000;
 }
+
+#logo-white {
+  position: absolute;
+  top: 10px;
+  z-index: 10000;
+}
+
 .search-bar {
   background-color: $gallery;
   border-style: none none solid none;
   border-width: thin;
   color: white;
+  width: 100%;
 }
 
-i {
-  color: $gallery;
-  height: 20px;
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color: rgba(255, 255, 255, 0.6);
 }
-
-
