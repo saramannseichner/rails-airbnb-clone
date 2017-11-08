@@ -9,7 +9,7 @@ class Artwork < ApplicationRecord
   validates :height, presence: true
   validates :width, presence: true
   validates :price, presence: true
-
+  validates :address, presence: true
  # class method that allows for searches of artwork
  # add lines based on fields in the database
  # used with index in artworks controller
