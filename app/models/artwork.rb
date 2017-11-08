@@ -7,4 +7,14 @@ class Artwork < ApplicationRecord
   validates :artist, presence: true
   validates :medium, presence: true
   validates :size, presence: true
+
+ # class method that allows for searches of artwork
+ # add lines based on fields in the database
+ # used with index in artworks controller
+  def self.search(search)
+    where("name LIKE ?", "%#{search}%")
+    where("size LIKE ?", "%#{search}%")
+    where("artist LIKE ?","%#{search}%")
+    where("medium LIKE ?","%#{search}%")
+  end
 end
