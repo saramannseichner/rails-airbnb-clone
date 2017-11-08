@@ -17,7 +17,9 @@ attributes = [
       height: 2,
       width: 2,
       description: "A beautiful cliff taken during my trip to Colombia.",
-      address: "125 Rue Elmire"
+      address: "125 Rue Elmire",
+      user_id: 1,
+      price: 1000
     },
     "https://picsum.photos/400/300/?random"
   ]

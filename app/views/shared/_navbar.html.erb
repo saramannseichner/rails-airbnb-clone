@@ -1,4 +1,5 @@
 <div class="navbar">
+
   <!-- navbar -->
   <div class= "navbar-top" id="main-nav-header">
     <!-- menu -->
@@ -36,6 +37,7 @@
       </ul>
       <%= link_to new_user_session_path, class: "tab-link tab-log-in" do %>
         <% if user_signed_in? %>
+          <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
           <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/30x30" %>
           <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
         <% else %>

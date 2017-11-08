@@ -10,7 +10,7 @@
       <div class="artwork-container">
         <div class="content-container">
           <h1><%= @artwork.name %></h1>
-          <p><strong><%= @artwork.user_id %></strong></p>
+          <p><strong><%= @user.first_name%> <%= @user.last_name%></strong></p>
           <p><%= @artwork.medium %></p>
           <p><%= @artwork.height %> x <%= @artwork.width %></p>
           <p><%= @artwork.description %></p>
@@ -18,7 +18,7 @@
         <div class="rent-container">
           <div class="rent-info">
             <div class="rent-price">
-              <p>$49 per month</p>
+              <p>$<%= @artwork.price %> per month</p>
             </div>
             <div class="rent-status">
               <p>available</p>
@@ -38,13 +38,12 @@
   </div>
   <div class="row">
     <div class="col-xs-12">
-      <h1>This is where the map goes</h1>
-      <h3>More from <%= @artwork.user_id %></h3>
+      <div id="map" style="width: 500px; height: 500px;"></div>
+      <h3>More from <%= @user.first_name %> <%= @user.last_name %></h3>
       <h5>cards showing artwork from this artist</h5>
     </div>
   </div>
 
-  <div id="map" style="width: 500px; height: 500px;"></div>
 
     <% content_for(:after_js) do %>
       <%= javascript_tag do %>
