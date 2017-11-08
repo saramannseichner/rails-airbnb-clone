@@ -1,0 +1,6 @@
+<%= simple_form_for @reservation do |f| %>
+  <%= f.input :start_date %>
+  <%= f.input :end_date %>
+  <%  f.input :artwork, :as => :hidden, :input_html => { :value => @artwork } %>
+  <%= f.button :submit %>
+<% end %>

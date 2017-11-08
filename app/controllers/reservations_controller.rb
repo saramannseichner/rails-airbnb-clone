@@ -10,12 +10,13 @@ class ReservationsController < ApplicationController
 
   def new
     @reservation = Reservation.new
-    @user = current_user
     @artwork = Artwork.find(params[:id])
   end
 
   def create
     @reservation = Reservation.new(reservation_params)
+    @reservation.user_id = current_user.id
+    @reservation.artwork_id = params[:id]
     if @reservation.save!
       redirect_to reservation_path(@reservation)
     else
@@ -46,6 +47,6 @@ class ReservationsController < ApplicationController
   end
 
   def reservation_params
-    params.require(:reservation).permit(:date, :artwork, :user)
+    params.require(:reservation).permit(:start_date, :end_date, :artwork, :user)
   end
 end
