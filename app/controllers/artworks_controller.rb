@@ -4,7 +4,6 @@ class ArtworksController < ApplicationController
 
   def index
     @artworks = Artwork.all
-
     if params[:search]
       @artworks = Artwork.search(params[:search]).order("created_at DESC")
     else
