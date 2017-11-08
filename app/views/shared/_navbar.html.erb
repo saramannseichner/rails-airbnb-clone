@@ -31,7 +31,7 @@
     </div>
     <div class="menu-tabs">
       <ul class="list-inline tab-left">
-        <li class="tab-item"><%= link_to "Become a 514 artist", "#", class: "tab-link" %></li>
+        <li class="tab-item"><%= link_to "Add your Artwork", new_artwork_path, class: "tab-link" %></li>
         <li class="tab-item"><%= link_to "Help", "#", class: "tab-link" %></li>
       </ul>
       <%= link_to new_user_session_path, class: "tab-link tab-log-in" do %>
@@ -53,8 +53,8 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-12">
-        <form action="/search/" autocomplete="off">
-          <input class="search-bar"  type="search" placeholder="Type to search">
+        <form action="/artworks" method="get" autocomplete="off">
+          <input class="search-bar"  type="search" placeholder="Type to search" autofocus="true">
         </form>
       </div>
     </div>

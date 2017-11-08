@@ -2,7 +2,11 @@ class ArtworksController < ApplicationController
   before_action :set_artwork, only: [:show, :edit, :delete]
 
   def index
-    @artworks = Artwork.all
+    if params[:search]
+      @artworks = Artwork.search(params[:search]).order("created_at DESC")
+    else
+      @artworks = Artwork.all.order('created_at DESC')
+    end
   end
 
   def show
@@ -11,12 +15,13 @@ class ArtworksController < ApplicationController
 
   def new
     @artwork = Artwork.new
-    @user = User.find(params[:id])
   end
 
   def create
     @artwork = Artwork.new(artwork_params)
+    @artwork.user_id = current_user.id
     if @artwork.save!
+      current_user.artist = 'true'
       redirect_to artwork_path(@artwork)
     else
       render :new
@@ -46,6 +51,6 @@ class ArtworksController < ApplicationController
   end
 
   def artwork_params
-    params.require(:artwork).permit(:name, :medium, :size, :description, :artist, :address, :photo)
+    params.require(:artwork).permit(:name, :price, :height, :medium, :width, :description, :artist, :address, :photo)
   end
 end

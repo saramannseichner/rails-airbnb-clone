@@ -1,21 +1,24 @@
 <div class="container">
-  <h2>Upload a new artwork</h2>
+  <div class="form-content-container">
+    <h2>Upload a new artwork</h2>
+    <%= simple_form_for([@user, @artwork]) do |f| %>
+      <%= f.error_notification %>
 
-  <%= simple_form_for([@user, @artwork]) do |f| %>
-    <%= f.error_notification %>
+      <div class="form-inputs">
+        <%= f.input :name %>
+        <%= f.input :medium %>
+        <%= f.input :height %>
+        <%= f.input :width %>
+        <%= f.input :price %>
+        <%= f.input :description %>
+        <%= f.input :address %>
+        <%= f.input :photo, as: :attachinary %>
+      </div>
 
-    <div class="form-inputs">
-      <%= f.input :name %>
-      <%= f.input :medium %>
-      <%= f.input :size %>
-      <%= f.input :description %>
-      <%= f.input :address %>
-      <%= f.input :photo, as: :attachinary %>
-    </div>
-
-    <div class="form-actions">
-      <%= f.submit, class: "gallery-btn gallery-primary" %>
-    </div>
-  <% end %>
+      <div class="form-actions">
+        <%= f.button :submit, class: "gallery-btn gallery-primary" %>
+      </div>
+    <% end %>
+  </div>
 </div>
 
