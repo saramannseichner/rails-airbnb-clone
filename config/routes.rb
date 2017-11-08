@@ -5,6 +5,7 @@ Rails.application.routes.draw do
       resources :artworks, only: [ :new, :create ]
   end
   resources :artworks, only: [ :index ]
+  resources :search, only: [ :index ]
 
   mount Attachinary::Engine => "/attachinary"
   root to: 'pages#home'
