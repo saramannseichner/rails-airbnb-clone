@@ -15,8 +15,10 @@ class Artwork < ApplicationRecord
  # used with index in artworks controller
   def self.search(search)
     where("name LIKE ?", "%#{search}%")
-    where("size LIKE ?", "%#{search}%")
+    where("height LIKE ?", "%#{search}%")
     where("artist LIKE ?","%#{search}%")
     where("medium LIKE ?","%#{search}%")
+    where("price LIKE ?","%#{search}%")
+    where("width LIKE ?","%#{search}%")
   end
 end
