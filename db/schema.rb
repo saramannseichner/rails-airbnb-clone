@@ -26,6 +26,8 @@ ActiveRecord::Schema.define(version: 20171108162503) do
     t.integer "height"
     t.integer "width"
     t.bigint "user_id"
+    t.float "latitude"
+    t.float "longitude"
     t.index ["user_id"], name: "index_artworks_on_user_id"
   end
 

@@ -1,5 +1,5 @@
 <div class="card-container">
-  <%= link_to "#" do %>
+  <%= link_to artwork_path(artwork) do %>
     <div class="card-img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path artwork.photo.path, height: 400, width: 300, crop: :fill %>');">
       <div class="card-content text-center">
         <div class="card-item card-name">

@@ -2,6 +2,8 @@ class ArtworksController < ApplicationController
   before_action :set_artwork, only: [:show, :edit, :delete]
 
   def index
+    @artworks = Artwork.all
+
     if params[:search]
       @artworks = Artwork.search(params[:search]).order("created_at DESC")
     else
@@ -10,6 +12,13 @@ class ArtworksController < ApplicationController
   end
 
   def show
+    @artwork = Artwork.find(params[:id])
+    @artwork_coordinates = { lat: @artwork.latitude, lng: @artwork.longitude }
+    @reservation = Reservation.new
+    @hash = Gmaps4rails.build_markers(@artwork) do |artwork, marker|
+      marker.lat artwork.latitude
+      marker.lng artwork.longitude
+    end
   end
 
   def new
@@ -52,4 +61,5 @@ class ArtworksController < ApplicationController
   def artwork_params
     params.require(:artwork).permit(:name, :price, :height, :medium, :width, :description, :artist, :address, :photo)
   end
+
 end

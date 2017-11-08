@@ -1,0 +1,47 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-8 col-xs-offset-2">
+      <%= cl_image_tag @artwork.photo.path, class: "artwork-banner" %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="artwork-container">
+        <div class="content-container">
+          <h1><%= @artwork.name %></h1>
+          <p><strong><%= @artwork.user_id %></strong></p>
+          <p><%= @artwork.medium %></p>
+          <p><%= @artwork.height %> x <%= @artwork.width %></p>
+          <p><%= @artwork.description %></p>
+        </div>
+        <div class="rent-container">
+          <div class="rent-info">
+            <div class="rent-price">
+              <p>$49 per month</p>
+            </div>
+            <div class="rent-status">
+              <p>available</p>
+            </div>
+          </div>
+          <hr>
+          <div class="rent-dates text-center">
+            <%= simple_form_for [@artwork, @reservation] do |f| %>
+              <%= f.input :start_date, as: :date, html5: true %>
+              <%= f.input :end_date, as: :date, html5: true %>
+              <%= f.button :submit, value: "Request to Rent", class: "gallery-button gallery-primary" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <h1>This is where the map goes</h1>
+      <h3>More from <%= @artwork.user_id %></h3>
+      <h5>cards showing artwork from this artist</h5>
+    </div>
+  </div>
+</div>
+

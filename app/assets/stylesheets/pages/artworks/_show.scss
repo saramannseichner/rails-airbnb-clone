@@ -1,0 +1,43 @@
+.artwork-banner {
+  height: 70vh;
+  background-color: white;
+  padding: 10px;
+  box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
+  margin: 50px 0;
+  margin-left: 16.6666666667%;
+}
+
+.artwork-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.content-container {
+  align-self: flex-start;
+  h1 {
+    margin-top: 0;
+  }
+}
+
+.rent-container {
+  border: solid 1px $gray;
+  border-radius: 1px;
+  padding: 20px;
+  flex: 0 0 50%;
+}
+
+.rent-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.rent-status {
+  color: $gallery;
+}
+
+hr {
+  border-color: $gray;
+  margin-top: 0;
+}
