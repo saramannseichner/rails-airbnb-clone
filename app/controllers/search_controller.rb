@@ -1,4 +1,6 @@
 class SearchController < ApplicationController
+  skip_before_action :authenticate_user!
+
   if params[:search]
     @artworks = Artwork.search(params[:search]).order("created_at DESC")
   else
