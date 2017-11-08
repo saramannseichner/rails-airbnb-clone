@@ -4,5 +4,6 @@ class Reservation < ApplicationRecord
 
   validates :artwork, presence: true
   validates :user, presence: true
-  validates :date, presence: true
+  validates :start_date, presence: true
+  validates :end_date, presence: true
 end
