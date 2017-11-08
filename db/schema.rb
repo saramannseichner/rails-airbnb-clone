@@ -18,12 +18,15 @@ ActiveRecord::Schema.define(version: 20171108162503) do
   create_table "artworks", force: :cascade do |t|
     t.string "name"
     t.string "medium"
-    t.string "size"
     t.text "description"
     t.string "address"
-    t.string "artist"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "price"
+    t.integer "height"
+    t.integer "width"
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_artworks_on_user_id"
   end
 
   create_table "attachinary_files", id: :serial, force: :cascade do |t|
@@ -80,6 +83,7 @@ ActiveRecord::Schema.define(version: 20171108162503) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "artworks", "users"
   add_foreign_key "reservations", "artworks"
   add_foreign_key "reservations", "users"
 end
