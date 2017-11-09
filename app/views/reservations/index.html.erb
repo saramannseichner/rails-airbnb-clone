@@ -18,10 +18,17 @@
                   From <%= reservation.start_date %>
                   To <%= reservation.end_date %>
                 </p>
+                <p>At <%= artwork.address %></p>
               </div>
               <div class="request-item request-status">
-                <p>Pending</p>
-                <p>
+                <% if reservation.status == "approved"%>
+                  <p class="text-success">reservation.status</p>
+                <% elsif reservation.status == "pending" %>
+                  <p class="text-warning">reservation.status</p>
+                <% else %>
+                  <p class="text-danger">Declined</p>
+                <% end %>
+                <p class="request-total">
                   $<%= ((artwork.price / 30) * (Date.parse(reservation.end_date) - Date.parse(reservation.start_date))).to_i  %>
                 </p>
               </div>
