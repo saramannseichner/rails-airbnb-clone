@@ -4,7 +4,7 @@
         <h3>Request to rent your artworks:</h3>
           <% artist_artworks = Artwork.where(user_id: @user.id) %>
           <% artist_artworks.each do |artwork| %>
-            <% artwork_reservation = Reservation.find(artwork.id) %>
+            <% artwork_reservation = Reservation.find_by(artwork_id: artwork.id) %>
             <% reservation_user = User.find(artwork_reservation.user_id) %>
             <div class="row">
               <div class="request-container">
