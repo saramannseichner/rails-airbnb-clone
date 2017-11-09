@@ -42,9 +42,9 @@
         <%= link_to new_user_session_path, class: "tab-link tab-log-in" do %>
           <% if user_signed_in? %>
             <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/30x30" %>
-            <%= image_tag avatar_url, class: "avatar dropdown-toggle user-option", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
             <%= link_to "Profile", "#", class: "tab-link user-option" %>
             <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "tab-link user-option" %>
+            <%= image_tag avatar_url, class: "avatar dropdown-toggle user-option", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <% else %>
             <p>Log In</p>
             <i class="fa fa-user" aria-hidden="true"></i>
