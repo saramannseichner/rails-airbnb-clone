@@ -16,7 +16,7 @@ class ReservationsController < ApplicationController
   def create
     @reservation = Reservation.new(reservation_params)
     @reservation.user_id = current_user.id
-    @reservation.artwork_id = params[:id]
+    @reservation.artwork_id = params[:artwork_id]
     if @reservation.save!
       redirect_to reservation_path(@reservation)
     else
