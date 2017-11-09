@@ -25,7 +25,9 @@
                   </p>
                 </div>
                 <div class="request-item request-status">
-                  <%= form_for %>
+                  <%= simple_form_for @reservation do |f| %>
+                    <%= f.input :status %>
+                  <% end %>
                   <p class="request-total">
                     $<%= ((artwork.price / 30) * (Date.parse(artwork_reservation.end_date) - Date.parse(artwork_reservation.start_date))).to_i  %>
                   </p>
