@@ -1,4 +1,13 @@
 <div class="container">
+    <% if @user.is_artist %>
+      <div class="main-container">
+        <h3>Request to rent your artworks:</h3>
+          <% artist_artworks = Artwork.where(user_id: @user.id) %>
+          <% artist_artworks.each do |artwork| %>
+            <p><%= artwork.name %></p>
+          <% end %>
+      </div>
+    <% end %>
     <div class="main-container">
       <h3>Your requests:</h3>
       <% if @reservations %>
