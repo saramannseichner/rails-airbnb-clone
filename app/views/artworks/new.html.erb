@@ -1,17 +1,22 @@
+
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(1, 175, 175,0.6) 0%, rgba(0,36,61,0.6) 60%), url('<%= image_path('add-artwork.jpg') %>;">
+  <h1> Kickstart your artistic career </h1>
+</div>
+
 <div class="container">
   <div class="form-content-container">
-    <h2>Upload a new artwork</h2>
+    <h2>Upload your artwork</h2>
     <%= simple_form_for([@user, @artwork]) do |f| %>
       <%= f.error_notification %>
 
       <div class="form-inputs">
-        <%= f.input :name, placeholder: 'My Mona Lisa' %>
+        <%= f.input :name, placeholder: 'example: "My Mona Lisa" ' %>
         <%= f.input :medium, collection: @mediums, as: :grouped_select, group_method: :last, prompt: "How was it made?"%>
-        <%= f.input :height, placeholder: 'cms' %>
-        <%= f.input :width, placeholder: 'cms' %>
+        <%= f.input :height, placeholder: 'cm' %>
+        <%= f.input :width, placeholder: 'cm' %>
         <%= f.input :price, placeholder: 'Price per month'%>
         <%= f.input :description, placeholder: 'Tell the story of your art...' %>
-        <%= f.input :address, placeholder: 'Where can the  art be picked up...'%>
+        <%= f.input :address, placeholder: 'Where can the art be picked up?'%>
         <%= f.input :photo, as: :attachinary %>
       </div>
 
