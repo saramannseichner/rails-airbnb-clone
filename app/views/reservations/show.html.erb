@@ -9,7 +9,7 @@
         <li><strong><%= @artwork.name %></strong></li>
         <li><%= cl_image_tag @artwork.photo.path, class: "artwork-thumbnail" %></li>
         <li><strong>From:</strong> <%= @reservation.start_date %></li>
-        <li><strong>To:</strong> <%= @reservation.start_date %></li>
+        <li><strong>To:</strong> <%= @reservation.end_date %></li>
         <li>
           <strong>Total:</strong> $
           <%= ((@artwork.price / 30) * (Date.parse(@reservation.end_date) - Date.parse(@reservation.start_date))).to_i %>

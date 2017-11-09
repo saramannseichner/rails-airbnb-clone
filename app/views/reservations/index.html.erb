@@ -1,15 +1,39 @@
 <div class="container">
-  <div class="row">
-    <div class="requests-container">
+    <div class="main-container">
       <h3>Your requests:</h3>
       <% if @reservations %>
         <% @reservations.each do |reservation| %>
-          <%= reservation.start_date %>
+          <% artwork = Artwork.find(reservation.artwork_id) %>
+          <div class="row">
+            <div class="request-container">
+              <div class="request-artwork">
+                <%= cl_image_tag artwork.photo.path, class: "artwork-thumbnail" %>
+              </div>
+              <div class="artwork-info">
+                <p><%= artwork.name %></p>
+                <p><%= artwork.height %> x <%= artwork.width %> cm</p>
+              </div>
+              <div class="request-info">
+                <p>
+                  From <%= reservation.start_date %>
+                  To <%= reservation.end_date %>
+                </p>
+                <p>
+                  Total: $<%= ((artwork.price / 30) * (Date.parse(reservation.end_date) - Date.parse(reservation.start_date))).to_i  %>
+                </p>
+              </div>
+              <div class="request-status">
+                <p>Pending</p>
+              </div>
+            </div>
+            <hr>
+          </div>
         <% end %>
       <% else %>
-        <p>Sadly, you have no reservations.</p>
+        <p>Sadly, you have no requests.</p>
       <% end %>
-      <%= link_to "Back", root_path, class: "gallery-button" %>
-    </div>
+      <ul class="list-inline text-center">
+        <%= link_to "Back", root_path, class: "gallery-button option-links" %>
+      </ul>
   </div>
 </div>
