@@ -4,6 +4,7 @@ class ReservationsController < ApplicationController
   def index
     @user = current_user
     @reservations = Reservation.where(user: current_user)
+    @status = Reservation.status
   end
 
   def show
