@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row">
+    <div class="requests-container">
+      <h3>Your requests:</h3>
+      <% if @reservations %>
+        <% @reservations.each do |reservation| %>
+          <%= reservation.start_date %>
+        <% end %>
+      <% else %>
+        <p>Sadly, you have no reservations.</p>
+      <% end %>
+      <%= link_to "Back", root_path, class: "gallery-button" %>
+    </div>
+  </div>
+</div>
