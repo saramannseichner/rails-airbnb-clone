@@ -21,10 +21,10 @@
                 <p>Pick up at <%= artwork.address %></p>
               </div>
               <div class="request-item request-status">
-                <% if reservation.status == "approved"%>
-                  <p class="text-success">reservation.status</p>
-                <% elsif reservation.status == "pending" %>
-                  <p class="text-warning">reservation.status</p>
+                <% if reservation.status == "Approved"%>
+                  <p class="text-success"><%= reservation.status %></p>
+                <% elsif reservation.status == "Pending" %>
+                  <p class="text-warning"><%= reservation.status %></p>
                 <% else %>
                   <p class="text-danger">Declined</p>
                 <% end %>
