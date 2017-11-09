@@ -34,4 +34,9 @@ class User < ApplicationRecord
   def is_artist?
     self.is_artist
   end
+
+  def new_artist
+    self.is_artist = true
+    self.save
+  end
 end

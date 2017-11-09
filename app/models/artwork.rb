@@ -14,6 +14,17 @@ class Artwork < ApplicationRecord
   validates :width, presence: true
   validates :price, presence: true
   validates :address, presence: true
+
+  def self.mediums
+    [['Painting', ['Oil', 'Acrylic', 'Watercolor', 'Gouache', 'Tempera', 'Fresco painting', 'Murals']],
+    ['Drawing', ['Charcoal', 'Graphite', 'Pencil', 'Pen and Ink', 'India Ink', 'Pastel', 'Marker', 'Chalk']],
+    ['Printing', ['Screen', 'Mono', 'Block', 'Etching', 'Lithography', 'Spraypaint', 'Airbrush']],
+    ['Sculpture', ['Pottery', 'Ceramic', 'Wood', 'Glass', 'Metal', 'Wax', 'Stone', 'Butter']],
+    ['Textile', ['Weaving', 'Macrame', 'Stamping']],
+    ['Photography', ['Black and White', 'Digital', 'Photoshop', 'Graphic Design', 'Video Art']],
+    ['Other', ['Mixed Media', 'Collage', 'Paper Cutting']]
+    ]
+  end
  # class method that allows for searches of artwork
  # add lines based on fields in the database
  # used with index in artworks controller
