@@ -3,9 +3,8 @@ class ArtworksController < ApplicationController
   before_action :set_artwork, only: [:show, :edit, :delete]
 
   def index
-    @artworks = Artwork.all
     if params[:search]
-      @artworks = Artwork.search(params[:search]).order("created_at DESC")
+      @artworks = Artwork.search(params[:search])
     else
       @artworks = Artwork.all.order('created_at DESC')
     end
