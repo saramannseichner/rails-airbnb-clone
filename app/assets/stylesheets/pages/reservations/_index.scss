@@ -12,9 +12,24 @@
 }
 
 .request-item {
-  padding: 5px 10px;
+  padding: 5px 20px;
+  p {
+    margin: 3px 0;
+  }
 }
 
+.artwork-info {
+  h3 {
+    margin-top: 3px;
+  }
+
+}
 .request-info {
   flex: 1 0 auto;
+  p {
+    font-weight: lighter;
+  }
+}
+
+.request-total {
 }
