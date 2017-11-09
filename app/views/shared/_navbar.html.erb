@@ -35,17 +35,19 @@
         <li class="tab-item"><%= link_to "Add your Artwork", new_artwork_path, class: "tab-link" %></li>
         <li class="tab-item"><%= link_to "Help", "#", class: "tab-link" %></li>
       </ul>
-      <%= link_to new_user_session_path, class: "tab-link tab-log-in" do %>
-        <% if user_signed_in? %>
-          <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
-          <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/30x30" %>
-          <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
-        <% else %>
-          <p>Log In</p>
-          <i class="fa fa-user" aria-hidden="true"></i>
-          <%=  %>
+      <div class="user-options">
+        <%= link_to new_user_session_path, class: "tab-link tab-log-in" do %>
+          <% if user_signed_in? %>
+            <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/30x30" %>
+            <%= image_tag avatar_url, class: "avatar dropdown-toggle user-option", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+            <%= link_to "Profile", "#", class: "tab-link user-option" %>
+            <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "tab-link user-option" %>
+          <% else %>
+            <p>Log In</p>
+            <i class="fa fa-user" aria-hidden="true"></i>
+          <% end %>
         <% end %>
-      <% end %>
+      </div>
     </div>
   </div>
 </div>
