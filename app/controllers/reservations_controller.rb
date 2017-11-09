@@ -6,6 +6,8 @@ class ReservationsController < ApplicationController
   end
 
   def show
+    @artwork = Artwork.find(@reservation.artwork_id)
+    @user = User.find(@reservation.user_id)
   end
 
   def new

@@ -1,10 +1,16 @@
 <div class="container">
   <div class="row">
     <div class="confirmation-message">
-      <h3>Your request was sent to the artist.</h3>
-      <ul class="list-unstyled">
+       <h3>Thanks <%= @user.first_name %> for being a part of local art !</h3>
+      <h5>Your request was sent to the artist.</h5>
+      <h5>The artist now has 48 hours to approve this request.</h5>
+      <p>Details:</p>
+      <ul class="list-unstyled request-details">
+        <li><strong><%= @artwork.name %></strong></li>
+        <li><%= cl_image_tag @artwork.photo.path, class: "artwork-thumbnail" %></li>
         <li><strong>From:</strong> <%= @reservation.start_date %></li>
         <li><strong>To:</strong> <%= @reservation.start_date %></li>
+        <li><strong>Total:</strong> $<%= @artwork.price %></li>
       </ul>
     </div>
   </div>
