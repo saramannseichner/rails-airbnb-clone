@@ -5,13 +5,13 @@
       <%= f.error_notification %>
 
       <div class="form-inputs">
-        <%= f.input :name %>
-        <%= f.input :medium %>
-        <%= f.input :height %>
-        <%= f.input :width %>
-        <%= f.input :price %>
-        <%= f.input :description %>
-        <%= f.input :address %>
+        <%= f.input :name placeholder: 'My Mona Lisa' %>
+        <%= f.input :medium  %>
+        <%= f.input :height, placeholder: 'cms' %>
+        <%= f.input :width, placeholder: 'cms' %>
+        <%= f.input :price, placeholder: 'Price per month'%>
+        <%= f.input :description, placeholder: 'Tell the story of your art...' %>
+        <%= f.input :address, placeholder: 'Where can the  art be picked up...' %>
         <%= f.input :photo, as: :attachinary %>
       </div>
 
