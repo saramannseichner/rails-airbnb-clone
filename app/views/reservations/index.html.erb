@@ -4,8 +4,16 @@
         <h3>Request to rent your artworks:</h3>
           <% artist_artworks = Artwork.where(user_id: @user.id) %>
           <% artist_artworks.each do |artwork| %>
-            <p><%= artwork.name %></p>
+            <div class="row">
+              <p><%= artwork.name %></p>
+            </div>
+            <hr>
           <% end %>
+        <div class="option-links">
+          <ul class="list-inline text-center">
+            <%= link_to "Back", root_path, class: "gallery-button" %>
+          </ul>
+        </div>
       </div>
     <% end %>
     <div class="main-container">
@@ -48,8 +56,10 @@
       <% else %>
         <p>Sadly, you have no requests.</p>
       <% end %>
-      <ul class="list-inline text-center">
-        <%= link_to "Back", root_path, class: "gallery-button option-links" %>
-      </ul>
+      <div class="option-links">
+        <ul class="list-inline text-center">
+          <%= link_to "Back", root_path, class: "gallery-button" %>
+        </ul>
+      </div>
   </div>
 </div>

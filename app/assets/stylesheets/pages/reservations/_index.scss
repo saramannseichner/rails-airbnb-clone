@@ -18,6 +18,11 @@
   }
 }
 
+.request-artwork {
+  flex: 1 0 auto;
+  text-align: center;
+}
+
 .artwork-info {
   h3 {
     margin-top: 3px;
@@ -25,11 +30,15 @@
 
 }
 .request-info {
-  flex: 1 0 auto;
   p {
     font-weight: lighter;
   }
 }
 
-.request-total {
+hr {
+  margin-bottom: 0;
+}
+
+.option-links {
+  margin-top: 20px;
 }
