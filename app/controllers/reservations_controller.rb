@@ -19,6 +19,7 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.new(reservation_params)
     @reservation.user_id = current_user.id
     @reservation.artwork_id = params[:artwork_id]
+    @reservation.status = "Pending"
     if @reservation.save!
       redirect_to user_reservation_path(@reservation.user.id, @reservation)
     else

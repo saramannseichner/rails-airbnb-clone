@@ -9,19 +9,26 @@
               <div class="request-item request-artwork">
                 <%= cl_image_tag artwork.photo.path, class: "artwork-thumbnail" %>
               </div>
-              <div class="request-item artwork-info">
-                <p><%= artwork.name %></p>
-                <p><%= artwork.height %> x <%= artwork.width %> cm</p>
+              <div class="request-item artwork-info text-center">
+                <h3><%= artwork.name %></h3>
+                <h5><%= artwork.height %> x <%= artwork.width %> cm</h5>
               </div>
               <div class="request-item request-info">
                 <p>
                   From <%= reservation.start_date %>
                   To <%= reservation.end_date %>
                 </p>
+                <p>Pick up at <%= artwork.address %></p>
               </div>
               <div class="request-item request-status">
-                <p>Pending</p>
-                <p>
+                <% if reservation.status == "Approved"%>
+                  <p class="text-success"><%= reservation.status %></p>
+                <% elsif reservation.status == "Pending" %>
+                  <p class="text-warning"><%= reservation.status %></p>
+                <% else %>
+                  <p class="text-danger">Declined</p>
+                <% end %>
+                <p class="request-total">
                   $<%= ((artwork.price / 30) * (Date.parse(reservation.end_date) - Date.parse(reservation.start_date))).to_i  %>
                 </p>
               </div>
