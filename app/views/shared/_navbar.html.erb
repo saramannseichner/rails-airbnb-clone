@@ -33,6 +33,7 @@
     <div class="menu-tabs">
       <ul class="list-inline tab-left">
         <li class="tab-item"><%= link_to "Add your Artwork", new_artwork_path, class: "tab-link" %></li>
+        <li class="tab-item"><%= link_to "My Requests", user_reservations_path(current_user), class: "tab-link" %></li>
         <li class="tab-item"><%= link_to "Help", "#", class: "tab-link" %></li>
       </ul>
       <div class="user-options">
