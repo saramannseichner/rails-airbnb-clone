@@ -5,8 +5,8 @@
       <%= f.error_notification %>
 
       <div class="form-inputs">
-        <%= f.input :name placeholder: 'My Mona Lisa' %>
-        <%= f.input :medium  %>
+        <%= f.input :name, placeholder: 'My Mona Lisa' %>
+        <%= f.input :medium, collection: @mediums, as: :grouped_select, group_method: :last%>
         <%= f.input :height, placeholder: 'cms' %>
         <%= f.input :width, placeholder: 'cms' %>
         <%= f.input :price, placeholder: 'Price per month'%>

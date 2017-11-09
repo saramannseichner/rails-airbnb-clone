@@ -22,6 +22,7 @@ class ArtworksController < ApplicationController
   end
 
   def new
+    @mediums = Artwork.mediums
     @artwork = Artwork.new
   end
 
