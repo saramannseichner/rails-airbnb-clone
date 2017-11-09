@@ -2,7 +2,9 @@ class ReservationsController < ApplicationController
   before_action :set_reservation, only: [:show, :edit, :delete]
 
   def index
+    @user = current_user
     @reservations = Reservation.where(user: current_user)
+    @status = Reservation.status
   end
 
   def show
