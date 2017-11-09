@@ -6,7 +6,11 @@
   height: 100px;
   padding: 0px 50px;
   color: $dark-gray;
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
 }
+
 .footer-links {
   display: flex;
   align-items: center;
