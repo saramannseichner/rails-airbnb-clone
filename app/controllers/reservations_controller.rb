@@ -2,10 +2,12 @@ class ReservationsController < ApplicationController
   before_action :set_reservation, only: [:show, :edit, :delete]
 
   def index
-    @reservations = reservation.find_by(user: current_user)
+    @reservations = Reservation.where(user: current_user)
   end
 
   def show
+    @artwork = Artwork.find(@reservation.artwork_id)
+    @user = User.find(@reservation.user_id)
   end
 
   def new
@@ -16,9 +18,9 @@ class ReservationsController < ApplicationController
   def create
     @reservation = Reservation.new(reservation_params)
     @reservation.user_id = current_user.id
-    @reservation.artwork_id = params[:id]
+    @reservation.artwork_id = params[:artwork_id]
     if @reservation.save!
-      redirect_to reservation_path(@reservation)
+      redirect_to user_reservation_path(@reservation.user.id, @reservation)
     else
       render :new
     end
@@ -43,7 +45,7 @@ class ReservationsController < ApplicationController
   private
 
   def set_reservation
-     @reservation = reservation.find(params[:id])
+     @reservation = Reservation.find(params[:id])
   end
 
   def reservation_params

@@ -17,12 +17,15 @@ class Artwork < ApplicationRecord
  # class method that allows for searches of artwork
  # add lines based on fields in the database
  # used with index in artworks controller
-  def self.search(search)
-    where("name LIKE ?", "%#{search}%")
-    where("height LIKE ?", "%#{search}%")
-    where("artist LIKE ?","%#{search}%")
-    where("medium LIKE ?","%#{search}%")
-    where("price LIKE ?","%#{search}%")
-    where("width LIKE ?","%#{search}%")
+  def self.search(query)
+    query.downcase!
+    if query
+      where(["lower(medium) = ? OR lower(name) = ?", query, query])
+    else
+      find(:all)
+    end
   end
 end
+
+
+# (:all, :conditions => ['name LIKE ? OR medium LIKE ?', "%#{query}%"])

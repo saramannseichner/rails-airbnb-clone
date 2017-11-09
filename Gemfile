@@ -7,7 +7,7 @@ gem 'pg'
 gem 'puma'
 gem 'rails', '5.1.4'
 gem 'redis'
-# gem 'webpacker', '~> 3.0'
+gem 'webpacker', '~> 3.0'
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass'
@@ -29,8 +29,6 @@ gem "gmaps4rails"
 source 'https://rails-assets.org' do
   gem "rails-assets-underscore"
 end
-
-gem 'scoped_search', '~> 4.1', '>= 4.1.2'
 
 
 group :development, :test do
