@@ -1,2 +1,12 @@
-<h1>Your request was sent to the artist.</h1>
-<p><%= @reservation.start_date %></p>
+<div class="container">
+  <div class="row">
+    <div class="confirmation-message">
+      <h3>Your request was sent to the artist.</h3>
+      <ul class="list-unstyled">
+        <li><strong>From:</strong> <%= @reservation.start_date %></li>
+        <li><strong>To:</strong> <%= @reservation.start_date %></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
