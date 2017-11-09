@@ -6,24 +6,24 @@
           <% artwork = Artwork.find(reservation.artwork_id) %>
           <div class="row">
             <div class="request-container">
-              <div class="request-artwork">
+              <div class="request-item request-artwork">
                 <%= cl_image_tag artwork.photo.path, class: "artwork-thumbnail" %>
               </div>
-              <div class="artwork-info">
+              <div class="request-item artwork-info">
                 <p><%= artwork.name %></p>
                 <p><%= artwork.height %> x <%= artwork.width %> cm</p>
               </div>
-              <div class="request-info">
+              <div class="request-item request-info">
                 <p>
                   From <%= reservation.start_date %>
                   To <%= reservation.end_date %>
                 </p>
-                <p>
-                  Total: $<%= ((artwork.price / 30) * (Date.parse(reservation.end_date) - Date.parse(reservation.start_date))).to_i  %>
-                </p>
               </div>
-              <div class="request-status">
+              <div class="request-item request-status">
                 <p>Pending</p>
+                <p>
+                  $<%= ((artwork.price / 30) * (Date.parse(reservation.end_date) - Date.parse(reservation.start_date))).to_i  %>
+                </p>
               </div>
             </div>
             <hr>
