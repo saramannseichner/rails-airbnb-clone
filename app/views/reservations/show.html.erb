@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row">
+    <div class="confirmation-message">
+       <h3>Thanks <%= @user.first_name %> for being a part of local art !</h3>
+      <h5>Your request was sent to the artist.</h5>
+      <h5>The artist now has 48 hours to approve this request.</h5>
+      <p>Details:</p>
+      <ul class="list-unstyled request-details">
+        <li><strong><%= @artwork.name %></strong></li>
+        <li><%= cl_image_tag @artwork.photo.path, class: "artwork-thumbnail" %></li>
+        <li><strong>From:</strong> <%= @reservation.start_date %></li>
+        <li><strong>To:</strong> <%= @reservation.end_date %></li>
+        <li>
+          <strong>Total:</strong> $
+          <%= ((@artwork.price / 30) * (Date.parse(@reservation.end_date) - Date.parse(@reservation.start_date))).to_i %>
+        </li>
+      </ul>
+      <ul class="list-inline text-center">
+        <%= link_to "View All Requests", user_reservations_path(current_user), class: "gallery-button option-links" %>
+        <%= link_to "Back", root_path, class: "gallery-button option-links" %>
+      </ul>
+    </div>
+  </div>
+</div>
+
