@@ -15,10 +15,29 @@
 <div class="container">
   <div class="home-group">
     <div class="row align-left">
-      <%= link_to "Discover", "#", class:"gallery-primary gallery-btn btn-lg ", id:"home-btn"%>
+      <h3>More</h3>
     </div>
     <div class="row">
-      <%= render partial: 'components/artwork', collection: @recent_artwork, as: :artwork, locals: {height: "400px", width: "300px"} %>
+      <%= render partial: 'components/artwork', collection: @artworks, as: :artwork, locals: {height: "300px", width: "240px", bstp: "3"} %>
     </div>
   </div>
+  <div class="home-group">
+    <div class="row align-left">
+      <h3>New Artworks</h3>
+    </div>
+    <div class="row">
+      <%= render partial: 'components/artwork', collection: @recent_artwork, as: :artwork, locals: {height: "300px", width: "240px", bstp: "3"} %>
+    </div>
+  </div>
+  <div class="home-group">
+    <div class="row align-left">
+      <% unless @artwork_option[:search].empty? %>
+        <h3><%= @artwork_option[:sub] %> <%= @artwork_option[:cat] %></h3>
+      <div class="row">
+        <%= render partial: 'components/artwork', collection: @artwork_option_two[:search], as: :artwork, locals: {height: "300px", width: "240px", bstp: "3"} %>
+      <% end %>
+      </div>
+    </div>
+  </div>
+
 </div>
