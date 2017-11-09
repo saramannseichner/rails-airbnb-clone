@@ -9,16 +9,16 @@
               <div class="request-item request-artwork">
                 <%= cl_image_tag artwork.photo.path, class: "artwork-thumbnail" %>
               </div>
-              <div class="request-item artwork-info">
-                <p><%= artwork.name %></p>
-                <p><%= artwork.height %> x <%= artwork.width %> cm</p>
+              <div class="request-item artwork-info text-center">
+                <h3><%= artwork.name %></h3>
+                <h5><%= artwork.height %> x <%= artwork.width %> cm</h5>
               </div>
               <div class="request-item request-info">
                 <p>
                   From <%= reservation.start_date %>
                   To <%= reservation.end_date %>
                 </p>
-                <p>At <%= artwork.address %></p>
+                <p>Pick up at <%= artwork.address %></p>
               </div>
               <div class="request-item request-status">
                 <% if reservation.status == "approved"%>
