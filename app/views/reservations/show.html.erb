@@ -15,6 +15,10 @@
           <%= ((@artwork.price / 30) * (Date.parse(@reservation.end_date) - Date.parse(@reservation.start_date))).to_i %>
         </li>
       </ul>
+      <ul class="list-inline text-center">
+        <%= link_to "View All Requests", user_reservations_path(current_user), class: "gallery-button option-links" %>
+        <%= link_to "Back", root_path, class: "gallery-button option-links" %>
+      </ul>
     </div>
   </div>
 </div>
