@@ -44,6 +44,7 @@
 }
 
 /* Navbar Menu */
+
 .navbar-menu {
   position: absolute;
   width: 100%;
@@ -76,7 +77,7 @@
 }
 
 .menu-tabs {
-  background-color: white;
+  background-color: $gallery;
   box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
   height: 50px;
   display: flex;
@@ -90,7 +91,7 @@
 }
 
 .tab-link {
-  color: $gallery;
+  color: white;
   font-size: 14px;
   &:hover {
     color: black;
