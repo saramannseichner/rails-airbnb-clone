@@ -18,7 +18,7 @@ class ReservationsController < ApplicationController
     @reservation.user_id = current_user.id
     @reservation.artwork_id = params[:artwork_id]
     if @reservation.save!
-      redirect_to reservation_path(@reservation)
+      redirect_to user_reservation_path(@reservation.user.id, @reservation)
     else
       render :new
     end
@@ -43,7 +43,7 @@ class ReservationsController < ApplicationController
   private
 
   def set_reservation
-     @reservation = reservation.find(params[:id])
+     @reservation = Reservation.find(params[:id])
   end
 
   def reservation_params
