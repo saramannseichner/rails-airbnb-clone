@@ -12,14 +12,13 @@
 </div>
 
 <br>
-<div class="home-container">
-  <div class="row align-left">
-  <%= link_to "Discover", "#", class:"gallery-primary gallery-btn btn-lg ", id:"home-btn"%>
-  </div>
-  <div class="row">
-    <div class="col-xs-12 col-sm-4">
+<div class="container">
+  <div class="home-group">
+    <div class="row align-left">
+      <%= link_to "Discover", "#", class:"gallery-primary gallery-btn btn-lg ", id:"home-btn"%>
     </div>
-    <div class="col-xs-12 col-sm-4">
+    <div class="row">
+      <%= render partial: 'components/artwork', collection: @recent_artwork, as: :artwork, locals: {height: "400px", width: "300px"} %>
     </div>
   </div>
 </div>

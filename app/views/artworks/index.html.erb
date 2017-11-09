@@ -9,13 +9,11 @@
   </div>
   <br>
   <div class="row">
-
-      <% if @artworks.present? %>
-        <%= render partial: 'components/artwork',collection: @artworks %>
-      <% else %>
-        <p>There are no posts containing the term(s) <%= params[:search] %>.</p>
-      <% end %>
-
+    <% if @artworks.present? %>
+      <%= render partial: 'components/artwork',collection: @artworks %>
+    <% else %>
+      <p>There are no posts containing the term(s) <%= params[:search] %>.</p>
+    <% end %>
   </div>
 </div>
 

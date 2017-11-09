@@ -37,6 +37,3 @@ class Artwork < ApplicationRecord
     end
   end
 end
-
-
-# (:all, :conditions => ['name LIKE ? OR medium LIKE ?', "%#{query}%"])
