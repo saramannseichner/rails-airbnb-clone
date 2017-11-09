@@ -28,8 +28,10 @@ class ArtworksController < ApplicationController
 
   def create
     @artwork = Artwork.new(artwork_params)
-    @artwork.user_id = current_user.id
+    @user = current_user
+    @artwork.user_id = @user.id
     if @artwork.save!
+      @user.new_artist unless @user.is_artist?
       redirect_to artwork_path(@artwork)
     else
       render :new
