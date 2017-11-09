@@ -36,6 +36,7 @@ class User < ApplicationRecord
   end
 
   def new_artist
-    self.artist = true
+    self.is_artist = true
+    self.save
   end
 end
