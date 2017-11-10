@@ -10,9 +10,15 @@
   justify-content: space-around;
   align-items: center;
   position: relative;
+  padding-bottom: 30px;
 }
 
 .delete-reservation-btn {
+  position: absolute;
+  bottom: 20px;
+}
+
+.status-btn {
   position: absolute;
   bottom: 20px;
 }

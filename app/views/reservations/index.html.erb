@@ -28,7 +28,7 @@
                   <% if artwork_reservation.status == "Pending" %>
                     <%= simple_form_for artwork_reservation do |f| %>
                       <%= f.input :status, collection: @status, prompt: "Pending" %>
-                      <%= f.button :submit, value: "Submit" %>
+                      <%= f.button :submit, value: "Submit", class: "gallery-button gallery-primary status-btn" %>
                     <% end %>
                   <% else %>
                     <% if artwork_reservation.status == "Approved"%>
