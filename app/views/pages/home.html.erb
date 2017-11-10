@@ -34,7 +34,7 @@
     </div>
     <div class="home-group">
       <div class="row align-left">
-        <% unless @artwork_option[:search].empty? %>
+        <% if !@artwork_option[:search].empty? %>
           <h3><%= @artwork_option[:sub] %> <%= @artwork_option[:cat] %></h3>
         <div class="row">
           <%= render partial: 'components/artwork', collection: @artwork_option_two[:search], as: :artwork, locals: {height: "300px", bstp: "3"} %>
