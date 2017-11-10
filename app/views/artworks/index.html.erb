@@ -1,9 +1,9 @@
-<div class="container">
-  <h1 class="text-center">Discover artworks in Montreal </h1>
+<div class="container footer-fix">
+  <h1 class="text-center text-primary">Discover <%= pluralize(@artworks.size, "artwork") %> in Montreal </h1>
   <br>
   <div class="row">
     <% if @artworks.present? %>
-      <%= render partial: 'components/artwork',collection: @artworks, as: :artwork, locals: {height: "400px", bstp: "3"} %>
+      <%= render partial: 'components/artwork',collection: @artworks, as: :artwork, locals: {height: "350px", bstp: "3"} %>
     <% else %>
       <p>There are no posts containing the term(s) <%= params[:search] %>.</p>
     <% end %>
