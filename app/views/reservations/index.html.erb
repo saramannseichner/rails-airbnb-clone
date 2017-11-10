@@ -28,7 +28,13 @@
                   <% if artwork_reservation.status == "Pending" %>
                     <%= simple_form_for artwork_reservation do |f| %>
                       <%= f.input :status, collection: @status, prompt: "Pending" %>
-                      <%= f.button :submit, value: "Submit", class: "gallery-button gallery-primary status-btn" %>
+                      <%= f.button :submit, value: "Submit", class: "gallery-button gallery-primary", id: "status-btn" %>
+                    <% end %>
+                    <%= javascript_tag do %>
+                      statusBtn = document.getElementById("status-btn");
+                      statusBtn.addEventListener("click", (event) => {
+                        alert('Thanks! We will advise <%= reservation_user.first_name %> of your decision.');
+                      });
                     <% end %>
                   <% else %>
                     <% if artwork_reservation.status == "Approved"%>
