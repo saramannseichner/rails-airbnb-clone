@@ -1,66 +1,67 @@
 <div class="container">
-    <% if @user.is_artist %>
-      <div class="main-container">
-        <h3>Request to rent your artworks:</h3>
-          <% artist_artworks = Artwork.where(user_id: @user.id) %>
-          <% artist_artworks.each do |artwork| %>
-            <% if !artwork.reservations.empty? %>
-              <% artwork_reservation = Reservation.find_by(artwork_id: artwork.id) %>
-              <% reservation_user = User.find(artwork_reservation.user_id) %>
-              <div class="row">
-                <div class="request-container">
-                  <div class="request-item request-artwork">
-                    <%= cl_image_tag artwork.photo.path, class: "artwork-thumbnail" %>
-                  </div>
-                  <div class="request-item artwork-info text-center">
-                    <h3><%= artwork.name %></h3>
-                    <h5><%= artwork_reservation.created_at.to_date %></h5>
-                  </div>
-                  <div class="request-item request-info">
-                    <p>
-                      Request by <%= reservation_user.first_name %> <%= reservation_user.last_name %>
-                    </p>
-                    <p>
-                      From <%= artwork_reservation.start_date %>
-                      To <%= artwork_reservation.end_date %>
-                    </p>
-                  </div>
-                  <div class="request-item request-status">
-                    <% if artwork_reservation.status == "Pending" %>
-                      <%= simple_form_for artwork_reservation do |f| %>
-                        <%= f.input :status, collection: @status, prompt: "Pending" %>
-                        <%= f.button :submit, value: "Submit", class: "gallery-button gallery-primary", id: "status-btn" %>
-                      <% end %>
-                      <%= javascript_tag do %>
-                        statusBtn = document.getElementById("status-btn");
-                        statusBtn.addEventListener("click", (event) => {
-                          alert('Thanks! We will advise <%= reservation_user.first_name %> of your decision.');
-                        });
-                      <% end %>
-                    <% else %>
-                      <% if artwork_reservation.status == "Approved"%>
-                        <p class="text-success"><%= artwork_reservation.status %></p>
-                      <% else %>
-                        <p class="text-danger">Declined</p>
-                      <% end %>
-                      <%= link_to "Delete", artwork_reservation, method: :delete, remote: true, class: "gallery-button delete-reservation-btn" %>
-                    <% end %>
-                    <p class="request-total">
-                      $<%= ((artwork.price / 30) * (Date.parse(artwork_reservation.end_date) - Date.parse(artwork_reservation.start_date))).to_i  %>
-                    </p>
-                  </div>
+  <% if @user.is_artist %>
+    <div class="main-container">
+      <h3>Request to rent your artworks:</h3>
+        <% artist_artworks = Artwork.where(user_id: @user.id) %>
+        <% artist_artworks.each do |artwork| %>
+          <% if !artwork.reservations.empty? %>
+            <% artwork_reservation = Reservation.find_by(artwork_id: artwork.id) %>
+            <% reservation_user = User.find(artwork_reservation.user_id) %>
+            <div class="row">
+              <div class="request-container">
+                <div class="request-item request-artwork">
+                  <%= cl_image_tag artwork.photo.path, class: "artwork-thumbnail" %>
                 </div>
-                <hr>
-            <% end %>
+                <div class="request-item artwork-info text-center">
+                  <h3><%= artwork.name %></h3>
+                  <h5><%= artwork_reservation.created_at.to_date %></h5>
+                </div>
+                <div class="request-item request-info">
+                  <p>
+                    Request by <%= reservation_user.first_name %> <%= reservation_user.last_name %>
+                  </p>
+                  <p>
+                    From <%= artwork_reservation.start_date %>
+                    To <%= artwork_reservation.end_date %>
+                  </p>
+                </div>
+                <div class="request-item request-status">
+                  <% if artwork_reservation.status == "Pending" %>
+                    <%= simple_form_for artwork_reservation do |f| %>
+                      <%= f.input :status, collection: @status, prompt: "Pending" %>
+                      <%= f.button :submit, value: "Submit", class: "gallery-button gallery-primary", id: "status-btn" %>
+                    <% end %>
+                    <%= javascript_tag do %>
+                      statusBtn = document.getElementById("status-btn");
+                      statusBtn.addEventListener("click", (event) => {
+                        alert('Thanks! We will advise <%= reservation_user.first_name %> of your decision.');
+                      });
+                    <% end %>
+                  <% else %>
+                    <% if artwork_reservation.status == "Approved"%>
+                      <p class="text-success"><%= artwork_reservation.status %></p>
+                    <% else %>
+                      <p class="text-danger">Declined</p>
+                    <% end %>
+                    <%= link_to "Delete", artwork_reservation, method: :delete, remote: true, class: "gallery-button delete-reservation-btn" %>
+                  <% end %>
+                  <p class="request-total">
+                    $<%= ((artwork.price / 30) * (Date.parse(artwork_reservation.end_date) - Date.parse(artwork_reservation.start_date))).to_i  %>
+                  </p>
+                </div>
+              </div>
+              <hr>
+            </div>
           <% end %>
-        <div class="option-links">
-          <ul class="list-inline text-center">
-            <%= link_to "Back", root_path, class: "gallery-button" %>
-          </ul>
-        </div>
+        <% end %>
+      <div class="option-links">
+        <ul class="list-inline text-center">
+          <%= link_to "Back", root_path, class: "gallery-button" %>
+        </ul>
       </div>
-    <% end %>
-    <% if !@reservations.empty? %>
+    </div>
+  <% end %>
+  <% if !@reservations.empty? %>
       <div class="main-container">
         <h3>Your requests:</h3>
         <% @reservations.each do |reservation| %>
@@ -104,19 +105,18 @@
             <%= link_to "Back", root_path, class: "gallery-button" %>
           </ul>
         </div>
+  <% else %>
+    <div class="main-container">
+      <h3>Your requests:</h3>
+      <br>
+      <p>You have no requests at this time.</p>
+      <br>
+      <hr>
+      <div class="option-links">
+        <ul class="list-inline text-center">
+          <%= link_to "Back", root_path, class: "gallery-button" %>
+        </ul>
       </div>
-    <% else %>
-      <div class="main-container">
-        <h3>Your requests:</h3>
-        <br>
-        <p>You have no requests at this time.</p>
-        <br>
-        <hr>
-        <div class="option-links">
-          <ul class="list-inline text-center">
-            <%= link_to "Back", root_path, class: "gallery-button" %>
-          </ul>
-        </div>
-      </div>
-    <% end %>
+    </div>
+  <% end %>
 </div>
