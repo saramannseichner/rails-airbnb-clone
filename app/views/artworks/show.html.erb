@@ -11,8 +11,7 @@
         <div class="content-container">
           <h1 class="text-primary"><%= @artwork.name %></h1>
           <p><strong><%= @artist.first_name%> <%= @artist.last_name%></strong></p>
-          <p><%= @artwork.medium %></p>
-          <p><%= @artwork.height %> x <%= @artwork.width %></p>
+          <p><%= @artwork.medium %>, <%= @artwork.height %>cm x <%= @artwork.width %>cm </p>
           <p><%= @artwork.description %></p>
         </div>
         <div class="rent-container">
