@@ -13,7 +13,6 @@
   background-size: cover;
   background-position: center;
   background-origin: content-box;
-
 }
 
 .card-content {
@@ -42,7 +41,8 @@
     padding: 0 10px;
     font-size: .8em;
     letter-spacing: 2px;
-    color: $gray;
+    color: $dark-gray;
+    word-wrap: normal;
   }
   max-width: 50%;
 }
