@@ -30,7 +30,7 @@ class Artwork < ApplicationRecord
  # used with index in artworks controller
   def self.search(query)
     query.downcase!
-    if
+    if query
       where(["lower(medium) = ? OR lower(name) = ?", query, query])
     else
       find(:all)
