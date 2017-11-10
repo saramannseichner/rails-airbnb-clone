@@ -4,37 +4,39 @@
         <h3>Request to rent your artworks:</h3>
           <% artist_artworks = Artwork.where(user_id: @user.id) %>
           <% artist_artworks.each do |artwork| %>
-            <% artwork_reservation = Reservation.find_by(artwork_id: artwork.id) %>
-            <% reservation_user = User.find(artwork_reservation.user_id) %>
-            <div class="row">
-              <div class="request-container">
-                <div class="request-item request-artwork">
-                  <%= cl_image_tag artwork.photo.path, class: "artwork-thumbnail" %>
-                </div>
-                <div class="request-item artwork-info text-center">
-                  <h3><%= artwork.name %></h3>
-                  <h5><%= artwork_reservation.created_at.to_date %></h5>
-                </div>
-                <div class="request-item request-info">
-                  <p>
-                    Request by <%= reservation_user.first_name %> <%= reservation_user.last_name %>
-                  </p>
-                  <p>
-                    From <%= artwork_reservation.start_date %>
-                    To <%= artwork_reservation.end_date %>
-                  </p>
-                </div>
-                <div class="request-item request-status">
-                  <%= simple_form_for artwork_reservation do |f| %>
-                    <%= f.input :status, collection: @status, prompt: "Pending" %>
-                  <% end %>
-                  <p class="request-total">
-                    $<%= ((artwork.price / 30) * (Date.parse(artwork_reservation.end_date) - Date.parse(artwork_reservation.start_date))).to_i  %>
-                  </p>
+            <% if !artwork.reservations.empty? %>
+              <% artwork_reservation = Reservation.find_by(artwork_id: artwork.id) %>
+              <% reservation_user = User.find(artwork_reservation.user_id) %>
+              <div class="row">
+                <div class="request-container">
+                  <div class="request-item request-artwork">
+                    <%= cl_image_tag artwork.photo.path, class: "artwork-thumbnail" %>
+                  </div>
+                  <div class="request-item artwork-info text-center">
+                    <h3><%= artwork.name %></h3>
+                    <h5><%= artwork_reservation.created_at.to_date %></h5>
+                  </div>
+                  <div class="request-item request-info">
+                    <p>
+                      Request by <%= reservation_user.first_name %> <%= reservation_user.last_name %>
+                    </p>
+                    <p>
+                      From <%= artwork_reservation.start_date %>
+                      To <%= artwork_reservation.end_date %>
+                    </p>
+                  </div>
+                  <div class="request-item request-status">
+                    <%= simple_form_for artwork_reservation do |f| %>
+                      <%= f.input :status, collection: @status, prompt: "Pending" %>
+                    <% end %>
+                    <p class="request-total">
+                      $<%= ((artwork.price / 30) * (Date.parse(artwork_reservation.end_date) - Date.parse(artwork_reservation.start_date))).to_i  %>
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
-            <hr>
+              <hr>
+            <% end %>
           <% end %>
         <div class="option-links">
           <ul class="list-inline text-center">
