@@ -31,10 +31,12 @@ class ArtworksController < ApplicationController
     @artwork = Artwork.new(artwork_params)
     @user = current_user
     @artwork.user_id = @user.id
-    if @artwork.save!
+    if @artwork.save
       @user.new_artist unless @user.is_artist?
       redirect_to artwork_path(@artwork)
     else
+      @mediums = Artwork.mediums
+      @artwork = Artwork.new
       render :new
     end
   end
