@@ -25,9 +25,19 @@
                   </p>
                 </div>
                 <div class="request-item request-status">
-                  <%= simple_form_for artwork_reservation do |f| %>
-                    <%= f.input :status, collection: @status, prompt: "Pending" %>
-                    <%= f.button :submit, value: "Submit" %>
+                  <% if artwork_reservation == "Pending" %>
+                    <%= simple_form_for artwork_reservation do |f| %>
+                      <%= f.input :status, collection: @status, prompt: "Pending" %>
+                      <%= f.button :submit, value: "Submit" %>
+                    <% end %>
+                  <% else %>
+                    <% if artwork_reservation.status == "Approved"%>
+                      <p class="text-success"><%= artwork_reservation.status %></p>
+                    <% elsif artwork_reservation.status == "Pending" %>
+                      <p class="text-warning"><%= artwork_reservation.status %></p>
+                    <% else %>
+                      <p class="text-danger">Declined</p>
+                    <% end %>
                   <% end %>
                   <p class="request-total">
                     $<%= ((artwork.price / 30) * (Date.parse(artwork_reservation.end_date) - Date.parse(artwork_reservation.start_date))).to_i  %>
