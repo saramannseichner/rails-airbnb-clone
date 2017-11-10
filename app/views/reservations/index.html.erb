@@ -25,7 +25,7 @@
                   </p>
                 </div>
                 <div class="request-item request-status">
-                  <% if artwork_reservation == "Pending" %>
+                  <% if artwork_reservation.status == "Pending" %>
                     <%= simple_form_for artwork_reservation do |f| %>
                       <%= f.input :status, collection: @status, prompt: "Pending" %>
                       <%= f.button :submit, value: "Submit" %>
