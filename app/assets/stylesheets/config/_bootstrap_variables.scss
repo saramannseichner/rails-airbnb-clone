@@ -26,3 +26,31 @@ $border-radius-small: 1px;
 .text-warning {
   color: $orange !important;
 }
+
+.btn-default:active:hover, .btn-default:active:focus, .btn-default:active.focus, .btn-default.active:hover, .btn-default.active:focus, .btn-default.active.focus, .open > .btn-default.dropdown-toggle:hover, .open > .btn-default.dropdown-toggle:focus, .open > .btn-default.dropdown-toggle.focus {
+    color: $gallery;
+    background-color: lighten($gallery, 50%);
+    border-color: $gallery;
+}
+
+.btn-default {
+    color: $gallery;
+    background-color: lighten($gallery, 50%);
+    border-color: $gallery;
+}
+
+// .btn-default:active, .btn-default.active, .open > .btn-default.dropdown-toggle {
+//     color: $gallery !important;
+//     background-color: lighten($gallery, 40%) !important;
+//     border-color: $gallery !important;
+//     box-shadow: none !important;
+// }
+
+.btn-default:active:focus {
+    color: $gallery !important;
+    background: none !important;
+    border-color: $gallery !important;
+    box-shadow: none !important;
+}
+
+

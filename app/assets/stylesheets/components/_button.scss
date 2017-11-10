@@ -24,6 +24,19 @@
   background: none;
 }
 
+.gallery-primary:focus {
+  transform: scale(1.00);
+  border-color: $gallery;
+  color: $gallery;
+  background: none;
+}
+
+.gallery-primary:visited {
+  border-color: $gallery;
+  color: $gallery;
+  background: none;
+}
+
 .gallery-primary:active {
   background-color: $gallery;
   border-color: $gallery;
