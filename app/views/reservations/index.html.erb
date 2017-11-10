@@ -27,6 +27,7 @@
                 <div class="request-item request-status">
                   <%= simple_form_for artwork_reservation do |f| %>
                     <%= f.input :status, collection: @status, prompt: "Pending" %>
+                    <%= f.button :submit, value: "Submit" %>
                   <% end %>
                   <p class="request-total">
                     $<%= ((artwork.price / 30) * (Date.parse(artwork_reservation.end_date) - Date.parse(artwork_reservation.start_date))).to_i  %>
@@ -81,7 +82,7 @@
           </div>
         <% end %>
       <% else %>
-        <p>Sadly, you have no requests.</p>
+        <p>You have no requests at this time.</p>
       <% end %>
       <div class="option-links">
         <ul class="list-inline text-center">
