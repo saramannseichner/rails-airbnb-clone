@@ -9,6 +9,12 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
+  position: relative;
+}
+
+.delete-reservation-btn {
+  position: absolute;
+  bottom: 20px;
 }
 
 .request-item {
