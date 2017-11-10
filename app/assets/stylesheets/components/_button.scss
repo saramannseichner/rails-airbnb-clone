@@ -18,7 +18,10 @@
 }
 
 .gallery-primary:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
+  border-color: $gallery;
+  color: $gallery;
+  background: none;
 }
 
 .gallery-primary:active {
