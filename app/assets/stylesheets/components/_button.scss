@@ -3,6 +3,7 @@
   padding: 8px 25px;
   border: solid;
   border-width: 1.5px;
+  font-size: 18px;
   background: none;
 }
 
@@ -17,8 +18,12 @@
 }
 
 .gallery-primary:hover {
-  background-color: rgba(193, 203, 203, 0.5);
+  background: none;
   border-color: $gallery;
+  font-weight: 700;
+  font-size: 17px;
+  padding: 9px 24.5px;
+  color: $gallery;
 }
 
 .gallery-primary:active {
@@ -27,8 +32,8 @@
 }
 
 .gallery-secondary:hover {
-  background-color: rgba(193, 203, 203, 0.5);
-  border-color: $dark-gray;
+  background-color: $gallery;
+  opacity: 0.5;
 }
 
 .btn-primary.btn-facebook {

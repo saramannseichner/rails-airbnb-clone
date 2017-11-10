@@ -1,0 +1,36 @@
+li {
+  img {
+    border-radius: 50%;
+    margin-top: 20px;
+  }
+}
+
+.form-control {
+  color: $dark-gray;
+}
+
+
+.placeholder {
+  color: #989898;
+}
+
+.attachinary-input {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.attachinary {
+    font-weight: lighter;
+    color: $gallery;
+    display: inline-block;
+}
+
+
+.attachinary {
+  cursor: pointer; /* "hand" cursor */
+}
+

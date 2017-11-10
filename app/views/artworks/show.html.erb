@@ -9,8 +9,8 @@
     <div class="col-xs-12">
       <div class="artwork-container">
         <div class="content-container">
-          <h1><%= @artwork.name %></h1>
-          <p><strong><%= @user.first_name%> <%= @user.last_name%></strong></p>
+          <h1 class="text-primary"><%= @artwork.name %></h1>
+          <p><strong><%= @artist.first_name%> <%= @artist.last_name%></strong></p>
           <p><%= @artwork.medium %></p>
           <p><%= @artwork.height %> x <%= @artwork.width %></p>
           <p><%= @artwork.description %></p>
@@ -45,9 +45,17 @@
   </div>
   <div class="row">
     <div class="col-xs-12">
-      <h3>More from <%= @user.first_name %> <%= @user.last_name %></h3>
-      <div class="artist-cards">
-        <%= render partial: 'components/artwork',collection: @user.artworks %>
+      <% if @artworks.present? %>
+        <br>
+        <h3>More from <%= @artist.first_name %> <%= @artist.last_name %></h3>
+        <div class="artist-cards">
+          <div class="row">
+
+            <%= render partial: 'components/artwork',collection: @artworks, as: :artwork, locals: {height: "400px", bstp: "4"} %>
+          </div>
+        </div>
+        <br>
+      <% end %>
       </div>
     </div>
   </div>

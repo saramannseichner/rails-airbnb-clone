@@ -26,16 +26,31 @@
                     </p>
                   </div>
                   <div class="request-item request-status">
-                    <%= simple_form_for artwork_reservation do |f| %>
-                      <%= f.input :status, collection: @status, prompt: "Pending" %>
+                    <% if artwork_reservation.status == "Pending" %>
+                      <%= simple_form_for artwork_reservation do |f| %>
+                        <%= f.input :status, collection: @status, prompt: "Pending" %>
+                        <%= f.button :submit, value: "Submit", class: "gallery-button gallery-primary", id: "status-btn" %>
+                      <% end %>
+                      <%= javascript_tag do %>
+                        statusBtn = document.getElementById("status-btn");
+                        statusBtn.addEventListener("click", (event) => {
+                          alert('Thanks! We will advise <%= reservation_user.first_name %> of your decision.');
+                        });
+                      <% end %>
+                    <% else %>
+                      <% if artwork_reservation.status == "Approved"%>
+                        <p class="text-success"><%= artwork_reservation.status %></p>
+                      <% else %>
+                        <p class="text-danger">Declined</p>
+                      <% end %>
+                      <%= link_to "Delete", artwork_reservation, method: :delete, remote: true, class: "gallery-button delete-reservation-btn" %>
                     <% end %>
                     <p class="request-total">
                       $<%= ((artwork.price / 30) * (Date.parse(artwork_reservation.end_date) - Date.parse(artwork_reservation.start_date))).to_i  %>
                     </p>
                   </div>
                 </div>
-              </div>
-              <hr>
+                <hr>
             <% end %>
           <% end %>
         <div class="option-links">
@@ -45,9 +60,9 @@
         </div>
       </div>
     <% end %>
-    <div class="main-container">
-      <h3>Your requests:</h3>
-      <% if @reservations %>
+    <% if !@reservations.empty? %>
+      <div class="main-container">
+        <h3>Your requests:</h3>
         <% @reservations.each do |reservation| %>
           <% artwork = Artwork.find(reservation.artwork_id) %>
           <div class="row">
@@ -69,10 +84,12 @@
               <div class="request-item request-status">
                 <% if reservation.status == "Approved"%>
                   <p class="text-success"><%= reservation.status %></p>
+                  <%= link_to "Delete", reservation, method: :delete, remote: true, class: "gallery-button delete-reservation-btn" %>
                 <% elsif reservation.status == "Pending" %>
                   <p class="text-warning"><%= reservation.status %></p>
                 <% else %>
                   <p class="text-danger">Declined</p>
+                  <%= link_to "Delete", reservation, method: :delete, remote: true, class: "gallery-button delete-reservation-btn" %>
                 <% end %>
                 <p class="request-total">
                   $<%= ((artwork.price / 30) * (Date.parse(reservation.end_date) - Date.parse(reservation.start_date))).to_i  %>
@@ -82,13 +99,24 @@
             <hr>
           </div>
         <% end %>
-      <% else %>
-        <p>Sadly, you have no requests.</p>
-      <% end %>
-      <div class="option-links">
-        <ul class="list-inline text-center">
-          <%= link_to "Back", root_path, class: "gallery-button" %>
-        </ul>
+        <div class="option-links">
+          <ul class="list-inline text-center">
+            <%= link_to "Back", root_path, class: "gallery-button" %>
+          </ul>
+        </div>
       </div>
-  </div>
+    <% else %>
+      <div class="main-container">
+        <h3>Your requests:</h3>
+        <br>
+        <p>You have no requests at this time.</p>
+        <br>
+        <hr>
+        <div class="option-links">
+          <ul class="list-inline text-center">
+            <%= link_to "Back", root_path, class: "gallery-button" %>
+          </ul>
+        </div>
+      </div>
+    <% end %>
 </div>

@@ -9,8 +9,10 @@
 }
 
 .card-img {
-  background-size: cover !important;
+  background-size: cover;
   background-position: center;
+  background-origin: content-box;
+
 }
 
 .card-content {
@@ -26,8 +28,10 @@
   align-items: center;
   flex-direction: column;
   &:hover {
-    background-color: white;
-    opacity: 0.9;
+    background: linear-gradient(#ffffff, lighten($gallery, 35%));
+    color: #000000;
+    mix-blend-mode: screen;
+    opacity: 1;
   }
 }
 
