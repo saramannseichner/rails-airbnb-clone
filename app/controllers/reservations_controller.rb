@@ -1,5 +1,5 @@
 class ReservationsController < ApplicationController
-  before_action :set_reservation, only: [:show, :edit, :delete]
+  before_action :set_reservation, only: [:show, :edit, :update, :delete]
 
   def index
     @user = current_user
@@ -33,9 +33,8 @@ class ReservationsController < ApplicationController
   end
 
   def update
-    @reservation = Reservation.new(reservation_params)
-     if @reservation.save!
-      redirect_to reservation_path(@reservation)
+    if @reservation.update(reservation_params)
+      redirect_to user_reservations_path(@reservation.user_id)
     else
       render :edit
     end
@@ -52,6 +51,6 @@ class ReservationsController < ApplicationController
   end
 
   def reservation_params
-    params.require(:reservation).permit(:start_date, :end_date, :artwork, :user)
+    params.require(:reservation).permit(:start_date, :end_date, :artwork, :user, :status)
   end
 end
