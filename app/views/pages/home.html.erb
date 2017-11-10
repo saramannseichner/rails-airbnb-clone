@@ -14,32 +14,33 @@
   <div class="tab-item gallery-btn gallery-primary"><%= link_to "Add your Artwork", new_artwork_path, class: "tab" %></div>
 </div>
 <br>
-<div class="container home-container">
-  <div class="home-group">
-    <div class="row">
-      <div class="container">
-        <h3>Editor Picks</h3>
-      <%= render partial: 'components/artwork', collection: @artworks, as: :artwork, locals: {height: "300px", bstp: "3"} %>
-      </div>
-    </div>
-  </div>
-  <div class="home-group">
-    <div class="row">
-      <div class="container">
-        <h3>New Artworks</h3>
-        <%= render partial: 'components/artwork', collection: @recent_artwork, as: :artwork, locals: {height: "300px", bstp: "3"} %>
-      </div>
-    </div>
-  </div>
-  <div class="home-group">
-    <div class="row align-left">
-      <% unless @artwork_option[:search].empty? %>
-        <h3><%= @artwork_option[:sub] %> <%= @artwork_option[:cat] %></h3>
+<div class="container">
+  <div class="container home-container">
+    <div class="home-group">
       <div class="row">
-        <%= render partial: 'components/artwork', collection: @artwork_option_two[:search], as: :artwork, locals: {height: "300px", bstp: "3"} %>
-      <% end %>
+        <div class="container">
+          <h3>Editor Picks</h3>
+        <%= render partial: 'components/artwork', collection: @artworks, as: :artwork, locals: {height: "300px", bstp: "3"} %>
+        </div>
+      </div>
+    </div>
+    <div class="home-group">
+      <div class="row">
+        <div class="container">
+          <h3>New Artworks</h3>
+          <%= render partial: 'components/artwork', collection: @recent_artwork, as: :artwork, locals: {height: "300px", bstp: "3"} %>
+        </div>
+      </div>
+    </div>
+    <div class="home-group">
+      <div class="row align-left">
+        <% unless @artwork_option[:search].empty? %>
+          <h3><%= @artwork_option[:sub] %> <%= @artwork_option[:cat] %></h3>
+        <div class="row">
+          <%= render partial: 'components/artwork', collection: @artwork_option_two[:search], as: :artwork, locals: {height: "300px", bstp: "3"} %>
+        <% end %>
+        </div>
       </div>
     </div>
   </div>
-
 </div>
