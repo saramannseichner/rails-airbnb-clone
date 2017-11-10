@@ -18,12 +18,23 @@
 }
 
 .gallery-primary:hover {
-  background: none;
+  transform: scale(1.05);
   border-color: $gallery;
-  font-weight: 700;
-  font-size: 17px;
-  padding: 9px 24.5px;
   color: $gallery;
+  background: none;
+}
+
+.gallery-primary:focus {
+  transform: scale(1.00);
+  border-color: $gallery;
+  color: $gallery;
+  background: none;
+}
+
+.gallery-primary:visited {
+  border-color: $gallery;
+  color: $gallery;
+  background: none;
 }
 
 .gallery-primary:active {
@@ -32,8 +43,7 @@
 }
 
 .gallery-secondary:hover {
-  background-color: $gallery;
-  opacity: 0.5;
+  transform: scale(1.1);
 }
 
 .btn-primary.btn-facebook {
