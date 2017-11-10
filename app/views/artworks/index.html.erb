@@ -1,5 +1,5 @@
 <div class="container footer-fix">
-  <h1 class="text-center text-primary">Discover <%= pluralize(@artworks.size, "artwork") %> in Montreal </h1>
+  <h1 class="text-center text-primary">Discover <%= "artwork".pluralize(@artworks) %> in Montreal </h1>
   <br>
   <div class="row">
     <% if @artworks.present? %>

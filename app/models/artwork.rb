@@ -14,6 +14,7 @@ class Artwork < ApplicationRecord
   validates :width, presence: true
   validates :price, presence: true
   validates :address, presence: true
+  validates :photo, presence: true
 
   def self.mediums
     [['Painting', ['Oil', 'Acrylic', 'Watercolor', 'Gouache', 'Tempera', 'Fresco painting', 'Murals']],
