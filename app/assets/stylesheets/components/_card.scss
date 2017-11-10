@@ -9,8 +9,10 @@
 }
 
 .card-img {
-  background-size: cover !important;
+  background-size: cover;
   background-position: center;
+  background-origin: content-box;
+
 }
 
 .card-content {
