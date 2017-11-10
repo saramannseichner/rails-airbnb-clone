@@ -1,4 +1,4 @@
-<div class="banner" style="background-image: linear-gradient(-225deg, rgba(175, 175, 175,0.6) 0%, rgba(0,36,61,0.6) 60%), url('<%= image_path('banner.jpg') %>;">
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(175, 175, 175,0.6) 0%, rgba(0,36, 61, 0.6) 70%), url('<%= image_path('banner.jpg') %>;">
   <div class="banner-content">
     <div class="col-sm-4">
       <h1 class="align-left">Be a part</h1>
@@ -10,23 +10,25 @@
     </div>
   </div>
 </div>
-
+<div class="add-an-artwork-cta">
+  <div class="tab-item gallery-btn gallery-primary"><%= link_to "Add your Artwork", new_artwork_path, class: "tab-link" %></div>
+</div>
 <br>
-<div class="container">
+<div class="container home-container">
   <div class="home-group">
-    <div class="row align-left">
-      <h3>More</h3>
-    </div>
     <div class="row">
-      <%= render partial: 'components/artwork', collection: @artworks, as: :artwork, locals: {height: "300px", width: "240px", bstp: "3"} %>
+      <div class="container">
+        <h3>More</h3>
+        <%= render partial: 'components/artwork', collection: @artworks, as: :artwork, locals: {height: "300px", width: "240px", bstp: "3"} %>
+      </div>
     </div>
   </div>
   <div class="home-group">
-    <div class="row align-left">
-      <h3>New Artworks</h3>
-    </div>
     <div class="row">
+      <div class="container">
+      <h3>New Artworks</h3>
       <%= render partial: 'components/artwork', collection: @recent_artwork, as: :artwork, locals: {height: "300px", width: "240px", bstp: "3"} %>
+    </div>
     </div>
   </div>
   <div class="home-group">
