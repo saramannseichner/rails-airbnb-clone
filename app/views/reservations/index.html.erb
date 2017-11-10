@@ -1,9 +1,10 @@
 <div class="container">
-    <% if @user.is_artist %>
-      <div class="main-container">
-        <h3>Request to rent your artworks:</h3>
-          <% artist_artworks = Artwork.where(user_id: @user.id) %>
-          <% artist_artworks.each do |artwork| %>
+  <% if @user.is_artist %>
+    <div class="main-container">
+      <h3>Request to rent your artworks:</h3>
+        <% artist_artworks = Artwork.where(user_id: @user.id) %>
+        <% artist_artworks.each do |artwork| %>
+          <% if !artwork.reservations.empty? %>
             <% artwork_reservation = Reservation.find_by(artwork_id: artwork.id) %>
             <% reservation_user = User.find(artwork_reservation.user_id) %>
             <div class="row">
@@ -49,17 +50,18 @@
                   </p>
                 </div>
               </div>
+              <hr>
             </div>
-            <hr>
           <% end %>
-        <div class="option-links">
-          <ul class="list-inline text-center">
-            <%= link_to "Back", root_path, class: "gallery-button" %>
-          </ul>
-        </div>
+        <% end %>
+      <div class="option-links">
+        <ul class="list-inline text-center">
+          <%= link_to "Back", root_path, class: "gallery-button" %>
+        </ul>
       </div>
-    <% end %>
-    <% if !@reservations.empty? %>
+    </div>
+  <% end %>
+  <% if !@reservations.empty? %>
       <div class="main-container">
         <h3>Your requests:</h3>
         <% @reservations.each do |reservation| %>
@@ -103,19 +105,18 @@
             <%= link_to "Back", root_path, class: "gallery-button" %>
           </ul>
         </div>
+  <% else %>
+    <div class="main-container">
+      <h3>Your requests:</h3>
+      <br>
+      <p>You have no requests at this time.</p>
+      <br>
+      <hr>
+      <div class="option-links">
+        <ul class="list-inline text-center">
+          <%= link_to "Back", root_path, class: "gallery-button" %>
+        </ul>
       </div>
-    <% else %>
-      <div class="main-container">
-        <h3>Your requests:</h3>
-        <br>
-        <p>You have no requests at this time.</p>
-        <br>
-        <hr>
-        <div class="option-links">
-          <ul class="list-inline text-center">
-            <%= link_to "Back", root_path, class: "gallery-button" %>
-          </ul>
-        </div>
-      </div>
-    <% end %>
+    </div>
+  <% end %>
 </div>
