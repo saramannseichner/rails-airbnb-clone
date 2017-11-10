@@ -25,16 +25,6 @@ class Artwork < ApplicationRecord
     ['Other', ['Mixed Media', 'Collage', 'Paper Cutting']]
     ]
   end
-
-  def self.medium_option
-    option = rand(0..6)
-    results = {}
-    mediums = Artwork.mediums
-    results[:cat], category = mediums[option]
-    results[:sub], sub_category = category.sample
-    results[:search] = Artwork.where(["medium = ?", sub_category]).limit(4)
-    return results
-  end
  # class method that allows for searches of artwork
  # add lines based on fields in the database
  # used with index in artworks controller
