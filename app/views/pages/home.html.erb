@@ -1,4 +1,4 @@
-<div class="banner" style="background-image: linear-gradient(-225deg, rgba(175, 175, 175,0.6) 0%, rgba(87, 49, 255, 0.5) 50%), url('<%= image_path('banner.jpg') %>;">
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(175, 175, 175,0.6) 0%, rgba(0,36, 61, 0.6) 70%), url('<%= image_path('banner.jpg') %>;">
   <div class="banner-content">
     <div class="col-sm-4">
       <h1 class="align-left">Be a part</h1>
@@ -11,7 +11,7 @@
   </div>
 </div>
 <div class="add-an-artwork-cta">
-  <a href="#">Add An Artwork</a>
+  <div class="tab-item gallery-btn gallery-primary"><%= link_to "Add your Artwork", new_artwork_path, class: "tab-link" %></div>
 </div>
 <br>
 <div class="container home-container">

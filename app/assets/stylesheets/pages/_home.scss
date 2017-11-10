@@ -11,8 +11,10 @@ h1 {
 }
 
 .home-group .row .container {
-    display: flex;
-    align-items: flex-end;
+  margin-top: -50px;
+  margin-left: 60px;
+  display: flex;
+  align-items: flex-end;
 }
 
 .home-group h3 {
@@ -21,7 +23,7 @@ h1 {
     width: 1.5em;
     transform-origin: 0.5em;
     text-transform: lowercase;
-    color: #ffffff;
+    color: $gallery;
 }
 
 .home-container.container {
@@ -33,21 +35,35 @@ h1 {
 }
 
 body.pages_home {
-  background: desaturate($gallery, 50%);
+  background: white;
 }
 
 .add-an-artwork-cta {
-  background: linear-gradient(lighten($gallery, 20%), lighten($gallery, 30%));
-  height: 10vh;
+  margin-top: 20px;
+  margin-bottom: -20px;
   display: flex;
-  justify-content: center;
   align-content: center;
-  a {
-    text-align: center;
-    align-self: center;
-    text-transform: uppercase;
-    &:hover {
-      color: white;
+  justify-content: center;
+    a {
+      text-transform: uppercase;
+      text-align: center;
+      align-self: center;
     }
-  }
 }
+
+// .add-an-artwork-cta {
+//   color: $gallery;
+//   background: white;
+//   height: 10vh;
+//   display: flex;
+//   justify-content: center;
+//   align-content: center;
+//   a {
+//     text-transform: uppercase;
+//     text-align: center;
+//     align-self: center;
+//     &:hover {
+//       color: black;
+//     }
+//   }
+// }
